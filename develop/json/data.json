@@ -1,0 +1,149 @@
+{
+  "html":
+          {
+            "name": "HTML5",
+            "type": "language",
+            "logo": "/assets/images/logo_HTML5_128.png"
+          },
+  "haml":
+          {
+            "name": "Haml",
+            "type": "language",
+            "logo": "/assets/images/logo_haml.png"
+          },
+  "pug":
+          {
+            "name": "Pug",
+            "type": "language",
+            "logo": "/assets/images/logo_pug.png"
+          },
+  "css":
+          {
+            "name": "CSS",
+            "type": "language",
+            "logo": "/assets/images/logo_css3.png"
+          },
+  "sass":
+          {
+            "name": "Sass/SCSS",
+            "type": "language",
+            "logo": "/assets/images/logo_sass.png"
+          },
+  "js":
+          {
+            "name": "JavaScript",
+            "type": "language",
+            "logo": "/assets/images/logo_js.png"
+          },
+  "ts":
+          {
+            "name": "TypeScript",
+            "type": "JavaScript_Library",
+            "logo": "/assets/images/logo_vue.png"
+          },
+  "jQuery":
+          {
+            "name": "jQuery",
+            "type": "JavaScript_Library",
+            "logo": "/assets/images/logo_jquery.svg"
+          },
+  "vue":
+          {
+            "name": "Vue.js",
+            "type": "Javascript_Library",
+            "logo": "/assets/images/logo_vue.png"
+          },
+  "nuxt":
+          {
+            "name": "Nuxt.js",
+            "type": "JavaScript_FlameWork",
+            "logo": "/assets/images/logo_nuxt-icon.png"
+          },
+  "ruby":
+          {
+            "name": "Ruby",
+            "type": "language",
+            "logo": "/assets/images/logo_ruby.png"
+          },
+  "rails":
+          {
+            "name": "Ruby on Rails",
+            "type": "ruby_FlameWork",
+            "logo": "/assets/images/logo_rails.svg"
+          },
+  "php":
+          {
+            "name": "PHP",
+            "type": "language",
+            "logo": "/assets/images/logo_php-text.png"
+          },
+  "wordPress":
+          {
+            "name": "WordPress",
+            "type": "CMS",
+            "logo": "/assets/images/logo_WordPress.png"
+          },
+  "slack":
+          {
+            "name": "Slack",
+            "type": "tool",
+            "logo": "/assets/images/logo_Slack.png"
+          },
+  "git":
+          {
+            "name": "Git",
+            "type": "tool",
+            "logo": "/assets/images/logo_git.png"
+          },
+  "gitHub":
+          {
+            "name": "GitHub",
+            "type": "tool",
+            "logo": "/assets/images/logo_GitHub.png"
+          },
+  "sourcetree":
+          {
+            "name": "Sourcetree",
+            "type": "tool",
+            "logo": "/assets/images/logo_Sourcetree.png"
+          },
+  "nginx":
+          {
+            "name": "nginx",
+            "type": "MiddleWare",
+            "logo": "/assets/images/logo_nginx.png"
+          },
+  "mysql":
+          {
+            "name": "MySQL",
+            "type": "DB",
+            "logo": "/assets/images/logo-mysql.png"
+          },
+  "webpack":
+          {
+            "name": "webpack",
+            "type": "tool",
+            "logo": "/assets/images/logo_webpack.png"
+          },
+  "docker":
+          {
+            "name": "Docker",
+            "type": "tool",
+            "logo": "/assets/images/logo_Docker_vertical.png"
+          },
+  "aws":
+          {
+            "name": "AWS",
+            "type": "infrastructure",
+            "logo": "/assets/images/logo_AWS.png"
+          },
+  "firebase":
+          {
+            "name": "Firebase",
+            "type": "infrastructure",
+            "logo": "/assets/images/logo_firebase.png"
+          }
+}
+
+
+

@@ -1,0 +1,176 @@
+// 変数の宣言--色
+$baseWhiteColor: #ffffff;
+$baseBlackColor: #333333;
+$baseGrayColor: #707070;
+$baseBlueColor: #caedf2;
+$subBlueColor: #1f518e;
+// $baseRedColor: red;
+// $baseGreenColor: #08794a;
+$baseYellowColor: #c7b299;
+
+
+$baseTextColor: #707070;
+$linkTextColor: #0645ad;
+$visitedTextColor: #0B0080;
+$borderColorGray: #a2a9b1;
+
+
+$baseFontSize: 10;
+$rootFontSize: percentage( $baseFontSize / 16 );
+
+// // // // // //
+// Responsive //
+
+// 変数 ウィンドウ幅
+$sp:  568px;
+$tb:  768px;
+$pc1: 1024px;
+$pc2: 1280px;
+
+// スマホ
+@mixin sp {
+  @media (max-width: $sp - 1px) {
+    @content;
+  }
+}
+// タブレット568-767
+@mixin tb {
+  @media (min-width: $sp) and (max-width: $tb - 1px) {
+    @content;
+  }
+}
+// パソコン768-1023
+@mixin pc1 {
+  @media (min-width: $tb) and (max-width: $pc1 - 1px) {
+    @content;
+  }
+}
+// パソコン1024-1280
+@mixin pc2 {
+  @media (min-width: $pc1) and (max-width: $pc2 - 1px) {
+    @content;
+  }
+}
+// 1280以上
+@mixin up {
+  @media (min-width: $pc2) {
+    @content;
+  }
+}
+
+  // mq //
+  @include sp {
+  }
+  @include tb {
+  }
+  @include pc1 {
+  }
+  @include pc2 {
+  }
+  @include up {
+  }
+  // mq //
+
+//　今度やる
+// @mixin tb($break-point-min, $break-point-max) {
+//   @media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+//     @content;
+//   }
+// }
+
+// // レイアウト幅　式①
+// $layout-width-inner: 1180px;
+
+// // ブレークポイント 式②
+// $breakpoints: (
+//   "sp": "screen and (max-width: 767px)",
+//   "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+//   "pc": "screen and (min-width: #{$layout-width-inner})",
+// );
+
+// // =============================================================================
+// // svgフォント用のfunction
+// //任意の文字列を探し出し置換
+// // =============================================================================
+
+// @function str-replace($string, $search, $replace: "") {
+//   $index: str-index($string, $search);
+
+//   @if $index {
+//   @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+//   }
+
+//   @return $string;
+//   }
+
+//   // =============================================================================
+//   // font-faceを吐き出すmixin
+//   // =============================================================================
+
+//   @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
+//   $src: null;
+
+//   $extmods: (
+//   //eot: “?”, 古いIE用のkeyを設定する用だが割愛。一応記載しておきます。
+//   svg: "#" + str-replace($name, " ", "_")
+//   );
+
+//   $formats: (
+//   otf: "opentype",
+//   ttf: "truetype",
+//   eot: "embedded-opentype"
+//   );
+
+//   @each $ext in $exts {
+//   $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+//   $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+//   $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+//   }
+
+//   @font-face {
+//   font-family: quote($name);
+//   font-style: $style;
+//   font-weight: $weight;
+//   src: $src;
+//   }
+//   }
+
+
+
+// // // // // //
+// font-face //
+
+//   @include font-face("NotoSansJapanese", "../fonts/NotoSansCJKjp-Regular" , 400, normal);
+
+  /*medium*/
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Regular.eot'); /* IE9 Compact Modes */
+  // src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Regular.woff') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: 400;
+  font-style: Normal;
+}
+  /*BOld*/
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Bold.eot'); /* IE9 Compact Modes */
+  // src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Bold.woff') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: 700;
+  font-style: Bold;
+}
+  /*medium*/
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Black.eot'); /* IE9 Compact Modes */
+  // src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Black.woff') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Black.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/NotoSansCJKjp/NotoSansCJKjp-Black.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: 900;
+  font-style: Black;
+}
+
+

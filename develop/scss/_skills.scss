@@ -1,0 +1,333 @@
+
+// // // // // // // //
+// SKILL @JS-control //
+// // // // // // // //
+
+
+.p-skills {
+  @extend .p-content-section;
+
+  h1 {
+    @extend .content-headline1;
+  }
+  p {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 60px;
+    @include font-size(18);
+    @include line-height(24);
+    word-break: keep-all;;
+    text-align: center;
+    // mq //
+    @include sp {
+      margin-bottom: 30px;
+      padding: 0 5%;
+      @include font-size(14);
+      @include line-height(20);
+    }
+    @include tb {
+      margin-bottom: 30px;
+    }
+    @include pc1 {
+    }
+    @include pc2 {
+    }
+    @include up {
+    }
+    // mq //
+  }
+  // JSより呼出 アイコンリスト
+  &__inner {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    height: fit-content;
+
+  }
+}
+
+.skills__inner {
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 5%;
+    margin-bottom: 60px;
+    @include llX(10);
+    // mq //
+    @include sp {
+      margin-bottom: 20px;
+    }
+    @include tb {
+      margin-bottom: 30px;
+    }
+    @include pc1 {
+    }
+    @include pc2 {
+    }
+    @include up {
+    }
+    // mq //
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 64px;
+      height: 64px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.75;
+      filter: drop-shadow(8px 8px 8px #aaaaaa00);
+      transition: opacity ease-in-out 100ms,filter ease-in-out 100ms;
+      // mq //
+      @include sp {
+        width: 36px;
+        height: 36px;
+      }
+      @include tb {
+        width: 56px;
+        height: 56px;
+      }
+      @include pc1 {
+      }
+      @include pc2 {
+      }
+      @include up {
+      }
+      // mq //
+      &:hover {
+        opacity: 1;
+        filter: drop-shadow(8px 8px 8px #ffb23fd2);
+      }
+    }
+  }
+}
+
+
+
+
+//  JSで内容をappend
+.p-skill-display{
+  position: relative;
+  top: 0;
+  left: 0%;
+  margin-bottom: 20rem;
+  opacity: 0;
+  // mq //
+  @include sp {
+  }
+  @include tb {
+  }
+  @include pc1 {
+  }
+  @include pc2 {
+  }
+  @include up {
+    padding: 0 10%;
+  }
+  // mq //
+  .left {
+    position: relative;
+    top: 0;
+    left: 0%;
+
+    height: 0;
+    display: flex;
+    justify-content: center;
+    // mq //
+    @include sp {
+      width: 0%;
+    }
+    @include tb {
+      width: 38%;
+    }
+    @include pc1 {
+      width: 50%;
+    }
+    @include pc2 {
+      width: 50%;
+    }
+    @include up {
+      width: 50%;
+    }
+    // mq //
+    &::before {
+      content:"使用経験";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $subBlueColor;
+      color: $baseWhiteColor;
+      @include font-size(30);
+      @include line-height(130);
+      text-align: center;
+      vertical-align: middle;
+      filter: brightness(1);
+      z-index: -1;
+      clip-path: polygon(10% 0%, 85% 0%, 95% 50%, 85% 100%, 10% 100%);
+      // mq //
+      @include sp {
+        @include font-size(22);
+        @include line-height(125);
+        width: 0%;
+      }
+      @include tb {
+        @include font-size(22);
+        @include line-height(125);
+      }
+      @include pc1 {
+      }
+      @include pc2 {
+      }
+      @include up {
+      }
+      // mq //
+    }
+  }
+
+  .right {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    // max-height: 300px;
+    padding-right: 5%;
+    display: flex;
+    justify-content: center;
+
+    // mq //
+    @include sp {
+      left: 0%;
+      width: 100%;
+    }
+    @include tb {
+      left: 38%;
+      width: 62%;
+    }
+    @include pc1 {
+    }
+    @include pc2 {
+    }
+    @include up {
+
+    }
+    // mq //
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color:#f5f5f5;
+      filter: brightness(1);
+      z-index: -1;
+      // clip-path: polygon(0% 0%, 55% 0%, 61.5% 46%, 100% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 55% 0%, 60.5% 53%, 90% 100%, 0% 100%);
+
+      // mq //
+      @include sp {
+        clip-path:polygon(0% 0%, 53% 0%, 56.5% 33%, 100% 100%, 0% 100%)
+      }
+      @include tb {
+        clip-path:polygon(0% 0%, 57% 0%, 59.5% 42%, 95% 100%, 0% 100%)
+      }
+      @include pc1 {
+      }
+      @include pc2 {
+      }
+      @include up {
+      }
+      // mq //
+    }
+  }
+
+}
+
+
+.p-skill-display__append-field {
+  background: transparent;
+  width: 100%;
+
+  // JS append
+  div {
+    display: flex;
+    width: 100%;
+    padding: 3rem 3rem;
+    @include sp {
+      padding: 1.5rem 1.5rem;
+    }
+    .name {
+      width: 70%;
+      height: fit-content;
+      margin-bottom: 0.75rem;
+      padding: 20px 0 0 20px ;
+      @include font-size(30);
+      @include line-height(30);
+      background: transparent;
+      // mq //
+      @include sp {
+        @include font-size(22);
+        @include line-height(24);
+      }
+      @include tb {
+        @include font-size(22);
+        @include line-height(26);
+      }
+      @include pc1 {
+      }
+      @include pc2 {
+      }
+      @include up {
+      }
+      // mq //
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 64px;
+      background: transparent;
+      img{
+        width: auto;
+        height: auto;
+        max-width: 128px;
+        max-height:64px;
+        // mq //
+        @include sp {
+          max-width: 88px;
+          max-height:48px;
+        }
+        @include tb {
+          max-width: 96px;
+          max-height:64px;
+        }
+        @include pc1 {
+
+        }
+        @include pc2 {
+        }
+        @include up {
+        }
+        // mq //
+      }
+    }
+  }
+
+  .comment {
+    width: 100%;
+    height: fit-content;
+    padding: 0 3rem 3rem 3rem;
+    @include font-size(18);
+    @include line-height(24);
+    background: transparent;
+  }
+}

@@ -1,0 +1,152 @@
+
+.p-portfolios {
+  @extend .p-content-section;
+  margin-bottom: 8%;
+  h1 {
+    @extend .content-headline1;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 4%;
+    background: transparent;
+
+    // mq //
+    @include sp {
+      // 1×4
+      flex-direction: column;
+      align-items: center;
+    }
+    @include tb {
+      // 2×2
+      justify-content: center;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      padding: 0 clamp(0, 20px, 40px);
+    }
+    @include pc1 {
+      // 2×2
+      justify-content: center;
+      align-content: flex-start;
+      flex-wrap: wrap;
+    }
+    @include pc2 {
+      // 2×2
+         align-content: flex-start;
+      flex-wrap: wrap;
+      padding: 0 100px;
+    }
+    @include up {
+      // 4×1
+      padding: 0 clamp(100px, 120px, 15%);
+    }
+    // mq //
+
+
+    .c-portfolio {
+      margin-bottom: 5vw ;
+
+      @include sp {
+        // 1*4
+        width: 250px;
+      }
+      @include tb {
+        // 2*2
+        width: 250px;
+        &:nth-of-type(odd) {
+          margin-right: 30px;
+        }
+      }
+      @include pc1 {
+        // 2*2
+        width: 300px;
+        &:nth-of-type(odd) {
+          margin-right: clamp(45px, 55px ,60px);
+        }
+      }
+      @include pc2 {
+        // 2*2
+        width: 300px;
+        &:nth-of-type(odd) {
+          margin-left: auto;
+          margin-right: clamp(80px, 100px, 120px);
+        }
+        &:nth-of-type(even) {
+          margin-right: auto;
+        }
+      }
+      @include up {
+        // 4*1
+        width: 250px; //綺麗に4列にしたい
+        margin: 0 clamp(10px, 2%, 100px);
+      }
+
+      &__title-wrap {
+        position: relative;
+        height: 0;
+
+        h2 {
+          position: absolute;
+          top: calc(1.5rem + 149px);
+          left: 1rem;
+          height: 2rem;
+          font-size: 2rem;
+          color: $baseTextColor;
+        }
+      } // &_inner
+
+      &__thumb-wrap  {
+        @include flex_center-column;
+        width: 298px;
+        border-radius: 0.1rem;
+        border: solid #77777722 0.5px;
+
+        @include sp {
+          width: 248px;
+        }
+        @include tb {
+          width: 248px;
+        }
+        @include pc1 {
+          width: 298px;
+        }
+        @include pc2 {
+          width: 298px;
+        }
+        @include up {
+          width: 248px;
+        }
+
+        img {
+          width: 100%;
+          opacity: 0.075;
+          filter: saturate(10%);
+          transition: filter ease-in-out 230ms 50ms, opacity ease-in-out 230ms 50ms;
+
+          &:hover {
+            opacity: 1;
+            filter: saturate(100%);
+          }
+        }
+      }
+    }
+  }
+  > a {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    @include line-height(30);
+    @include font-size(16);
+    @include btn();
+  }
+  > a + a {
+    border-color: $baseBlueColor;
+    margin-top: 25px;
+  }
+}
+
+

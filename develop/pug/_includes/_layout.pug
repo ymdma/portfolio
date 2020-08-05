@@ -1,0 +1,20 @@
+html(lang="ja")
+  head
+    include /_includes/_head.pug
+  body
+    .page-wrap
+      .main
+        header#pageTittle
+          h1 Masato Yamada
+            span portfolio site
+
+        include /_includes/_profile.pug
+        include /_includes/_skills.pug
+        include /_includes/_portfolios.pug
+
+        #scrollBtn.c-scroll-btn--down(state="show")
+        #scrollBtnRvs.c-scroll-btn--up(state="hide")
+
+        p.please-scroll please scroll
+        footer
+          p copyright ©︎ MasatoYamada all reserved 2020

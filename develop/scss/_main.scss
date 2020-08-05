@@ -1,0 +1,235 @@
+a,
+a:link,
+a p,a span,a div{
+  color: $baseBlackColor;
+//   color: $linkTextColor;
+//   text-decoration: none #ffffff00;
+  transition: color  ease-in-out 200ms;
+}
+// a:visited {
+// }
+a p:hover,a span:hover,a:hover, a div:hover {
+  color: $subBlueColor;
+}
+
+section + section {
+  margin-top: 100px;
+}
+
+
+// // // // //
+// extend //
+// // // // //
+.p-content-section {
+  width: 100%;
+  height: fit-content;
+  background: transparent;
+}
+.content-headline1 {
+  width: 100%;
+  text-align: center;
+  color: $baseBlackColor;
+  // mq //
+  @include sp {
+    @include font-size(20);
+    margin: 0 0 40px;
+  }
+  @include tb {
+    @include font-size(20);
+    margin: 0 0 40px;
+  }
+  @include pc1 {
+    @include font-size(22);
+    margin: 0 0 60px;
+  }
+  @include pc2 {
+    @include font-size(24);
+    margin: 0 0 80px;
+  }
+  @include up {
+    @include font-size(28);
+    margin: 0 0 80px;
+  }
+  // mq //
+}
+
+// // // // // //
+
+body{
+  background: $baseWhiteColor;
+  margin: 0;
+  padding: 0;
+  overflow: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+                          // ただし、浮いている要素はその対象にならない
+
+}
+
+.page-wrap {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+
+  .main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    padding-top: 105vh; // header分
+    background: transparent;
+    @include font-size(16);
+    color: $baseTextColor;
+    // overflow: scroll; // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+                          // ただし、浮いている要素はその対象にならない
+  }
+}
+
+// TITLE (name)
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 38.2%;
+    background: transparent;
+
+  h1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 50%;
+    padding: 0 0 0 10%;
+    background: transparent;
+    @include font-size(48);
+    font-weight: 400;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+    transform: translateY(-100%);
+    // mq //
+    @include sp {
+      @include font-size(20);
+    }
+    @include tb {
+      @include font-size(32);
+    }
+    @include up {
+      padding: 0 0 0 20%;
+    }
+    // mq //
+
+    span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 100%;
+      padding: 0 10% 0 0;
+      background: transparent;
+      @include font-size(24);
+      font-weight: 400;
+      text-align: center;
+      color: $baseTextColor;
+      transform: translateY(-50%);
+      // mq //
+      @include sp {
+        @include font-size(12);
+      }
+      @include tb {
+        @include font-size(20);
+      }
+      @include up {
+        width: 100%;
+        padding: 0 20% 0 0;
+      }
+      // mq //
+    }
+  }
+}
+
+
+
+
+
+.c-scroll-btn--down {
+  position: fixed;
+  top: 88%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translateX(-50%);
+  background-image: url(../images/scroll_btn_down.svg);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: opacity ease-in-out 200ms;
+  opacity: .1;
+  &:hover {
+    opacity: 1;
+  }
+  &[state="show"]{
+    display: block;
+  }
+  &[state="hide"]{
+    display: none;
+  }
+}
+.c-scroll-btn--up {
+  position: fixed;
+  top: 88%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/scroll_btn_up.svg);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transform: translate(-50%, 0%);
+
+  transition: opacity ease-in-out 200ms;
+  opacity: .1;
+  &:hover {
+    opacity: 1;
+  }
+  &[state="show"]{
+    display: block;
+  }
+  &[state="hide"]{
+    display: none;
+  }
+}
+.please-scroll {
+  display: none;
+  position: fixed;
+  top: 88%;
+  left: 50%;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%,-200%);
+  color: $baseTextColor;
+  @include font-size(14);
+  font-weight: 400;
+  letter-spacing: 0.8px;
+}
+.c-scroll-btn--down:hover + .please-scroll {
+  display: block;
+}
+
+
+
+header, h1#pageTittle, .c-scroll-btn--down, .p-profile, .p-portfolios, .p-skills {
+  opacity: 0;
+  
+}
+
+
+.is-hidden {
+  display: none;
+}
+
+.inview {
+opacity:1;
+transition: opacity ease-in 1000ms 30ms;
+}
