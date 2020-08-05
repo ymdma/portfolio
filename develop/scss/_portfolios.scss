@@ -149,4 +149,41 @@
   }
 }
 
+.c-portfolio__comment {
+  display: none;
+  position: relative;
+  top: -25px;
+  left: -50%;
+  padding: 0.5rem;
+  margin-bottom: -200px;
+  border: dotted orange 1px;
+  background:#ffffff22;
+  color: $baseTextColor;
+  @include font-size(14);
+  @include line-height(16);
+  // mq //
+  @include sp {
+    top: 0px;
+    left: 0%;
+    margin-bottom: 50px;
+  }
+  @include tb {
+    top: -20px;
+    left: -10%;
+    background:#ffffffee;
+    color: $baseBlackColor;
+  }
+  @include pc1 {
+    background:#ffffffaa;
+  }
+  @include pc2 {
+  }
+  @include up {
+  }
+  // mq //
 
+}
+
+.c-portfolio:hover > .c-portfolio__comment {
+  display: block;
+}

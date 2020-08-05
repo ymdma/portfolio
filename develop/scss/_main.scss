@@ -213,7 +213,8 @@ header {
   font-weight: 400;
   letter-spacing: 0.8px;
 }
-.c-scroll-btn--down:hover + .please-scroll {
+.c-scroll-btn--down:hover + .please-scroll,
+.c-scroll-btn--up:hover + .please-scroll {
   display: block;
 }
 

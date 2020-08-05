@@ -88,7 +88,7 @@ Yamada = {
                         title  : 'ひらがなポーカー',
                         url    : 'https://hiragana-de-porker.web.app/',
                         gitHub : 'https://github.com/ymdma/hiragna-porker',
-                        comment: 'ひらがなを使ったカードゲームを２人プレイ用のJavaScriptゲームで再現しました。'
+                        comment: 'ひらがなを使ったカードゲームを２人プレイ用のJavaScriptゲームで再現しました。<br>面白い言葉を作った方が勝ち！'
                 },
                 countDown: {
                         title  : 'countDown',
