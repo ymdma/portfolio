@@ -6,6 +6,8 @@
 ## URL
   :link: [https://ymdma--portfolio.web.app/](https://ymdma--portfolio.web.app/)
 
+<br>
+
 ## 制作環境
 
 macOS Mojave
@@ -13,18 +15,26 @@ macOS Mojave
 ## 動作確認済み
 
   ### mac ( macOSX Mojave )
-  - mac / chrome
-  - mac / firefox
-  - mac / safari
+  - chrome
+  - firefox
+  - safari
   ### mobile ( iphone8 )
   - chrome
   - firefox
   - safari
   ### windows ( 10 )
-  - windows10 / chrome
-  - windows10 / firefox
-  - windows10 / edge
-  - windows10 / IE
+  - chrome
+  - firefox
+  - edge
+
+## 動作対象外
+
+  ###  windows10
+  - IE
+
+      InternetExplorerは正常に動作しませんので、IE以外のブラウザでアクセスしてください。
+
+<br>
 
 ## 制作日数
 
@@ -46,3 +56,11 @@ macOS Mojave
 
 ..などと言いつつ、、今回制作中もやはりまだまだマークアップのセマンティックさや、アクセシビリティの面なども含め、足りない部分は多く感じました。<br>
 また、できていそうなところも、しっかりできているのか確認しつつ..今後も理解を進めていきたいと思います。
+
+## 実装予定
+
+- IEの対応
+- ハンバーガーメニュー
+- 細かなアニメーション
+  - スクロールボタンなど
+- （できれば）リーダー対応

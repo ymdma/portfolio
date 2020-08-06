@@ -1,19 +1,26 @@
+a:visited,
 a,
 a:link,
 a p,a span,a div{
-  color: $baseBlackColor;
+  color: $subBlueColor;
 //   color: $linkTextColor;
 //   text-decoration: none #ffffff00;
   transition: color  ease-in-out 200ms;
 }
-// a:visited {
-// }
 a p:hover,a span:hover,a:hover, a div:hover {
   color: $subBlueColor;
 }
 
 section + section {
   margin-top: 100px;
+}
+
+
+#alertBox {
+  color: red;
+  @include font-size(60);
+  width: fit-content;
+  height: fit-content;
 }
 
 

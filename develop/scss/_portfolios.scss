@@ -35,7 +35,7 @@
     }
     @include pc2 {
       // 2×2
-         align-content: flex-start;
+      align-content: flex-start;
       flex-wrap: wrap;
       padding: 0 100px;
     }
@@ -56,9 +56,11 @@
       @include tb {
         // 2*2
         width: 250px;
+
         &:nth-of-type(odd) {
           margin-right: 30px;
         }
+
       }
       @include pc1 {
         // 2*2
@@ -163,9 +165,17 @@
   @include line-height(16);
   // mq //
   @include sp {
-    top: 0px;
+    display: block;
+    top: 2rem;
     left: 0%;
     margin-bottom: 50px;
+    &::before {
+      content: "▼";
+      top: 0;
+      width: fit-content;
+      height: fit-content;
+
+    }
   }
   @include tb {
     top: -20px;

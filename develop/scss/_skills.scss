@@ -13,10 +13,11 @@
   p {
     display: inline-block;
     width: 100%;
+    padding: 0 5%;
     margin-bottom: 60px;
     @include font-size(18);
     @include line-height(24);
-    word-break: keep-all;;
+    // word-break: keep-all;
     text-align: center;
     // mq //
     @include sp {

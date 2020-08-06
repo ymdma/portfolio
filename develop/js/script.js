@@ -4,16 +4,19 @@
 
 const Tech = require("../json/data.json");
 import {Person} from "./_class";
+import {isIE ,noIE} from "./_noIE";
 
 
 document.addEventListener("DOMContentLoaded", () => {
   // hbg();
-  appendSkillList()
-  skillShow()
-  appendProf()
-  profileHeight()
-  toggleScrollBtn()
-  scrollEvent()
+  noIE();
+  appendSkillList();
+  skillShow();
+  appendProf();
+  profileHeight();
+  toggleScrollBtn();
+  scrollEvent();
+
 });
 
 
@@ -220,16 +223,17 @@ const appendSkillList = () => {
 
   Object.keys(webSkill).forEach(e => {
 
+    let logoURL = Tech[`${e}`]['logo'];
     let newLi = document.createElement('li');
 
-    let logoURL = Tech[`${e}`]['logo'];
-
+    newLi.setAttribute('alt',`${e}_logo-image`)
     newLi.id = `${e}`
     newLi.style.backgroundImage = `url(${logoURL})`
     skillList.appendChild(newLi);
   })
 }
 
+// skill comment
 const skillShow = () => {
   const skillList_Li = document.querySelectorAll(' #skillList > li ');
   const skillArr = Array.prototype.slice.call(skillList_Li);
@@ -264,39 +268,41 @@ const skillShow = () => {
 //   }
 // }
 
-// スクロールでのエフェクト(フェード)
+// スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
-  const pageTittle = document.getElementById('pageTittle');
-  const skillsSection = document.getElementById('skillsSection');
-  const skillsAppendContent = document.getElementById('skillsAppendContent');
-  const portFolioSection = document.getElementById('portFolioSection');
-  const profileSection = document.getElementById('profileSection');
+  if (!isIE()) {
 
-const cb = (entries, observer) => {
-  entries.forEach( entry => {
-    if(entry.isIntersecting){
+    const pageTittle = document.getElementById('pageTittle');
+    const skillsSection = document.getElementById('skillsSection');
+    const skillsAppendContent = document.getElementById('skillsAppendContent');
+    const portFolioSection = document.getElementById('portFolioSection');
+    const profileSection = document.getElementById('profileSection');
 
-      entry.target.classList.add('inview')
-      // observer.unobserve(entry.target);//止める
+  const cb = (entries, observer) => {
+    entries.forEach( entry => {
+      if(entry.isIntersecting){
 
-    } else {
-      entry.target.classList.remove('inview');
-    }
-  })
+        entry.target.classList.add('inview')
+        // observer.unobserve(entry.target);//止める
+
+      } else {
+        entry.target.classList.remove('inview');
+      }
+    })
+  }
+  const options = {
+    rootMargin: "-100px 0px 0px 0px",
+  }
+
+
+    const io = new IntersectionObserver(cb, options);
+    io.observe(pageTittle)
+    io.observe(profileSection)
+    io.observe(skillsSection)
+    io.observe(skillsAppendContent)
+    io.observe(portFolioSection)
+  }
 }
-const options = {
-  rootMargin: "-200px 0px 0px 0px",
-}
-
-
-  const io = new IntersectionObserver(cb, options);
-  io.observe(pageTittle)
-  io.observe(profileSection)
-  io.observe(skillsSection)
-  io.observe(skillsAppendContent)
-  io.observe(portFolioSection)
-}
-
 
 // スクロールボタンの切り替え
 const toggleScrollBtn = () => {

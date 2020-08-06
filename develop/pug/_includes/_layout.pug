@@ -3,6 +3,7 @@ html(lang="ja")
     include /_includes/_head.pug
   body
     .page-wrap
+      #alertBox
       .main
         header#pageTittle
           h1 Masato Yamada
@@ -12,9 +13,8 @@ html(lang="ja")
         include /_includes/_skills.pug
         include /_includes/_portfolios.pug
 
-        #scrollBtn.c-scroll-btn--down(state="show")
-        p.please-scroll please scroll
-        #scrollBtnRvs.c-scroll-btn--up(state="hide")
-        p.please-scroll please scroll
+        include /_includes/_scroll-btn.pug
+
         footer
-          p copyright ©︎ MasatoYamada all reserved 2020
+          p -- InternetExplorer is not supported --<br>
+            | copyright <span>&copy;</span> MasatoYamada all reserved 2020
