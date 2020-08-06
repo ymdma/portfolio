@@ -16,11 +16,39 @@ section + section {
 }
 
 
-#alertBox {
-  color: red;
-  @include font-size(60);
-  width: fit-content;
+.alertIE {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: fit-content;
+  padding: 20px 20px;
+  text-align: center;
+
+  z-index: 100;
+
+  &__inner {
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: double brown 3px;
+  }
+  p {
+    @include font-size(16);
+    @include line-height(22);
+  }
+  &__headline[role="title"] {
+    margin-bottom: 35px;
+    color: brown;
+    @include font-size(24);
+    @include line-height(28);
+    text-decoration: underline dotted;
+  }
+  a:hover {
+    text-decoration: underline solid;
+  }
 }
 
 
@@ -232,9 +260,14 @@ header, h1#pageTittle, .c-scroll-btn--down, .p-profile, .p-portfolios, .p-skills
   
 }
 
+// // // // // //
+// クラス制御 //
+// // // // // //
 
 .is-hidden {
   display: none;
+  opacity: 0;
+  transition: display ease-in 0ms 300ms, opacity ease-in 300ms 0ms;
 }
 
 .inview {

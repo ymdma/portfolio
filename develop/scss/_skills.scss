@@ -17,7 +17,7 @@
     margin-bottom: 60px;
     @include font-size(18);
     @include line-height(24);
-    // word-break: keep-all;
+    // word-break: keep-all; // これを入れるとスマホで折り返さなくなる(はみ出る)
     text-align: center;
     // mq //
     @include sp {
@@ -45,7 +45,6 @@
     align-items: flex-start;
     width: 100%;
     height: fit-content;
-
   }
 }
 
@@ -137,10 +136,10 @@
     position: relative;
     top: 0;
     left: 0%;
-
     height: 0;
     display: flex;
     justify-content: center;
+    transition: height ease .5s, width ease .5s;
     // mq //
     @include sp {
       width: 0%;
@@ -199,7 +198,6 @@
     top: 0;
     left: 50%;
     width: 50%;
-    // max-height: 300px;
     padding-right: 5%;
     display: flex;
     justify-content: center;
@@ -274,6 +272,7 @@
       @include font-size(30);
       @include line-height(30);
       background: transparent;
+      transition: font-size ease .5s 1s;
       // mq //
       @include sp {
         @include font-size(22);

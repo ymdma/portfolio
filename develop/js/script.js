@@ -270,13 +270,27 @@ const skillShow = () => {
 
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
-  if (!isIE()) {
+                            const
+            pageTittle = document.getElementById('pageTittle'),
+        skillsSection  = document.getElementById('skillsSection'),
+  skillsAppendContent  = document.getElementById('skillsAppendContent'),
+      portFolioSection = document.getElementById('portFolioSection'),
+        profileSection = document.getElementById('profileSection');
 
-    const pageTittle = document.getElementById('pageTittle');
-    const skillsSection = document.getElementById('skillsSection');
-    const skillsAppendContent = document.getElementById('skillsAppendContent');
-    const portFolioSection = document.getElementById('portFolioSection');
-    const profileSection = document.getElementById('profileSection');
+  if (isIE()) {
+  // IEの場合セットしてあるopacityを戻す
+
+    pageTittle.style.opacity = '1';
+    skillsSection.style.opacity = '1';
+    skillsAppendContent.style.opacity = '1';
+    portFolioSection.style.opacity = '1';
+    profileSection.style.opacity = '1';
+
+  }
+  //I E以外
+  else {
+
+
 
   const cb = (entries, observer) => {
     entries.forEach( entry => {
@@ -294,8 +308,8 @@ const scrollEvent = () => {
     rootMargin: "-100px 0px 0px 0px",
   }
 
-
     const io = new IntersectionObserver(cb, options);
+
     io.observe(pageTittle)
     io.observe(profileSection)
     io.observe(skillsSection)
@@ -303,6 +317,8 @@ const scrollEvent = () => {
     io.observe(portFolioSection)
   }
 }
+
+
 
 // スクロールボタンの切り替え
 const toggleScrollBtn = () => {

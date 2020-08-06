@@ -40,16 +40,31 @@
     height: 100%;
     width: 100%;
     background-color:#f5f5f5;
-    background-image: url("../images/rec/onkyo-house.jpg");
-    background-size: contain;
+    background-image: url("../images/rec/onkyo-house.png");
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: center center ;
     filter: brightness(1);
     z-index: -1;
     clip-path: polygon(0% 0%, 91% 0%, 74.5% 50%, 91% 100%, 0% 100%);
     // mq //
+    @include sp {
+    }
+    @include tb {
+      background-size: 200%;
+      background-position: 0% 50% ;
+
+    }
+    @include pc1 {
+      background-size: 122%;
+      background-position: 0% 50% ;
+    }
+    @include pc2 {
+      background-size: 110%;
+      background-position: 0% 50% ;
+    }
     @include up {
       background-size: 100%;
+      background-position: 0% 50% ;
       clip-path: polygon(0% 0%, 89% 0%, 71.5% 50%, 89% 100%, 0% 100%);
     }
     // mq //

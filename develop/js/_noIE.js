@@ -12,17 +12,17 @@ export function isIE() {
 export const noIE = () => {
 
   if ( isIE() ) {
-    const alertBox = document.getElementById('alertBox');
+    const alertIE = document.getElementById('alertIE');
     let newDiv = document.createElement('div');
-    newDiv.classList.add('ie_alert');
+    newDiv.classList.add('alertIE__inner');
 
-    newDiv.innerHTML = `<span>Internet Explorer は対応していません</span>
-    <p>当サイトはあなたが使用しているブラウザに対応しておりません。<br>
-    Edgeやchromeなど、他のブラウザでアクセスしてください。<br>
+    newDiv.innerHTML = `<p class="alertIE__headline" role="title">Internet Explorer は対応しておりません</p>
+    <p>当サイトはお使いのブラウザに対応しておりません。<br>
+    お手数ではありますが、Edgeやchromeなど、他のブラウザでアクセスしてください。<br></p>
     <br>
-    <a href="https://www.google.co.jp/chrome/index.html">Google Chromeをダウンロード</a>`;
+    <p><a href="https://www.google.co.jp/chrome/index.html">Google Chromeをダウンロード</a></p>`;
 
-    alertBox.appendChild( newDiv );    //HTMLの追加
+    alertIE.appendChild( newDiv );    //HTMLの追加
+
   }
-
 }
