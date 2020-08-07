@@ -151,8 +151,7 @@
 
 .c-portfolio__comment {
   display: none;
-  @include position (
-    relative -25px, null, null, -50% );
+  @include position ( relative, -25px, null, null, -50% );
   padding: 0.5rem;
   margin-bottom: -200px;
   border: dotted orange 1px;
@@ -191,6 +190,6 @@
 
 }
 
-.c-portfolio:hover .c-portfolio__comment {
+.c-portfolio:hover > .c-portfolio__comment {
   display: block;
 }
