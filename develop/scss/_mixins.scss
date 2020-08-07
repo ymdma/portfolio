@@ -1,23 +1,10 @@
 
-$root: "../";
-$image: "images/";
-$image_path: $root + $image;
 
-
+// // 2カラム
 // @mixin flex_TwoColumn () {
 //   display:flex;
 //   align-items: flex-start;
 // }
-
-
-// // 縦・センター
-// @mixin flex_center-column() {
-//   display:flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
 
 // 横並び
 @mixin flex_sideBySide{
@@ -28,7 +15,6 @@ $image_path: $root + $image;
     display: inline-block;
   }
 }
-
 
 @mixin border {
   border: solid $borderGray 1px;

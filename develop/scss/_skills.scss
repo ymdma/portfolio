@@ -1,12 +1,11 @@
 
-// // // // // // // //
-// SKILL @JS-control //
-// // // // // // // //
+// // // /// // // // //
+// SKILLS  JS-control //
+// // // /// // // // //
 
 
 .p-skills {
   @extend .p-content-section;
-
   h1 {
     @extend .content-headline1;
   }
@@ -17,7 +16,7 @@
     margin-bottom: 60px;
     @include font-size(18);
     @include line-height(24);
-    // word-break: keep-all; // これを入れるとスマホで折り返さなくなる(はみ出る)
+    // word-break: keep-all; // これを入れるとスマホで折り返さなくなり、はみ出てしまう
     text-align: center;
     // mq //
     @include sp {
@@ -28,12 +27,6 @@
     }
     @include tb {
       margin-bottom: 30px;
-    }
-    @include pc1 {
-    }
-    @include pc2 {
-    }
-    @include up {
     }
     // mq //
   }
@@ -58,6 +51,7 @@
     padding: 0 5%;
     margin-bottom: 60px;
     @include llX(10);
+
     // mq //
     @include sp {
       margin-bottom: 20px;
@@ -65,17 +59,10 @@
     @include tb {
       margin-bottom: 30px;
     }
-    @include pc1 {
-    }
-    @include pc2 {
-    }
-    @include up {
-    }
     // mq //
+
     li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex--j-c( $text:left );
       margin-bottom: 10px;
       width: 64px;
       height: 64px;
@@ -94,12 +81,7 @@
         width: 56px;
         height: 56px;
       }
-      @include pc1 {
-      }
-      @include pc2 {
-      }
-      @include up {
-      }
+
       // mq //
       &:hover {
         opacity: 1;
@@ -120,25 +102,15 @@
   margin-bottom: 20rem;
   opacity: 0;
   // mq //
-  @include sp {
-  }
-  @include tb {
-  }
-  @include pc1 {
-  }
-  @include pc2 {
-  }
   @include up {
     padding: 0 10%;
   }
   // mq //
   .left {
-    position: relative;
-    top: 0;
-    left: 0%;
-    height: 0;
     display: flex;
     justify-content: center;
+    @include position ( relative, 0, null, null, 0);
+    height: 0;
     transition: height ease .5s, width ease .5s;
     // mq //
     @include sp {
@@ -159,13 +131,10 @@
     // mq //
     &::before {
       content:"使用経験";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      @include position ( absolute, 0, null, null, 0);
+      @include full-size;
       background-color: $subBlueColor;
-      color: $baseWhiteColor;
+      @include text-color($baseWhiteColor );
       @include font-size(30);
       @include line-height(130);
       text-align: center;
@@ -183,20 +152,12 @@
         @include font-size(22);
         @include line-height(125);
       }
-      @include pc1 {
-      }
-      @include pc2 {
-      }
-      @include up {
-      }
       // mq //
     }
   }
 
   .right {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    @include position ( absolute, 0, null, null, 50% );
     width: 50%;
     padding-right: 5%;
     display: flex;
@@ -211,22 +172,13 @@
       left: 38%;
       width: 62%;
     }
-    @include pc1 {
-    }
-    @include pc2 {
-    }
-    @include up {
 
-    }
     // mq //
     &::before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color:#f5f5f5;
+      @include position ( absolute, 0, null, null, 0);
+      @include full-size;
+      background-color: $subWhiteColor;
       filter: brightness(1);
       z-index: -1;
       // clip-path: polygon(0% 0%, 55% 0%, 61.5% 46%, 100% 100%, 0% 100%);
@@ -239,21 +191,14 @@
       @include tb {
         clip-path:polygon(0% 0%, 57% 0%, 59.5% 42%, 95% 100%, 0% 100%)
       }
-      @include pc1 {
-      }
-      @include pc2 {
-      }
-      @include up {
-      }
       // mq //
     }
   }
-
 }
 
 
 .p-skill-display__append-field {
-  background: transparent;
+  @include bg-transparent;
   width: 100%;
 
   // JS append
@@ -261,9 +206,11 @@
     display: flex;
     width: 100%;
     padding: 3rem 3rem;
+    // mq //
     @include sp {
       padding: 1.5rem 1.5rem;
     }
+    // mq //
     .name {
       width: 70%;
       height: fit-content;
@@ -271,7 +218,7 @@
       padding: 20px 0 0 20px ;
       @include font-size(30);
       @include line-height(30);
-      background: transparent;
+      @include bg-transparent;
       transition: font-size ease .5s 1s;
       // mq //
       @include sp {
@@ -284,18 +231,12 @@
       }
       @include pc1 {
       }
-      @include pc2 {
-      }
-      @include up {
-      }
       // mq //
     }
     .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex--column__center;
       max-height: 64px;
-      background: transparent;
+      @include bg-transparent;
       img{
         width: auto;
         height: auto;
@@ -310,13 +251,6 @@
           max-width: 96px;
           max-height:64px;
         }
-        @include pc1 {
-
-        }
-        @include pc2 {
-        }
-        @include up {
-        }
         // mq //
       }
     }
@@ -328,6 +262,6 @@
     padding: 0 3rem 3rem 3rem;
     @include font-size(18);
     @include line-height(24);
-    background: transparent;
+    @include bg-transparent;
   }
 }
