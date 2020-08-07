@@ -1,56 +1,3 @@
-a:visited,
-a,
-a:link,
-a p,a span,a div{
-  color: $subBlueColor;
-//   color: $linkTextColor;
-//   text-decoration: none #ffffff00;
-  transition: color  ease-in-out 200ms;
-}
-a p:hover,a span:hover,a:hover, a div:hover {
-  color: $subBlueColor;
-}
-
-section + section {
-  margin-top: 100px;
-}
-
-
-.alertIE {
-  position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-  padding: 20px 20px;
-  text-align: center;
-
-  z-index: 100;
-
-  &__inner {
-    width: 100%;
-    padding-bottom: 15px;
-    border-bottom: double brown 3px;
-  }
-  p {
-    @include font-size(16);
-    @include line-height(22);
-  }
-  &__headline[role="title"] {
-    margin-bottom: 35px;
-    color: brown;
-    @include font-size(24);
-    @include line-height(28);
-    text-decoration: underline dotted;
-  }
-  a:hover {
-    text-decoration: underline solid;
-  }
-}
-
 
 // // // // //
 // extend //
@@ -92,11 +39,9 @@ section + section {
 
 body{
   background: $baseWhiteColor;
-  margin: 0;
-  padding: 0;
-  overflow: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
-                          // ただし、浮いている要素はその対象にならない
 
+  overflow: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+                    // ただし、浮いている要素はその対象にならない
 }
 
 .page-wrap {
@@ -105,18 +50,22 @@ body{
   margin: 0;
   padding: 0;
   background: transparent;
+}
 
-  .main {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0px;
-    padding-top: 105vh; // header分
-    background: transparent;
-    @include font-size(16);
-    color: $baseTextColor;
-    // overflow: scroll; // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
-                          // ただし、浮いている要素はその対象にならない
+.main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0px;
+  padding-top: 105vh; // header分
+  background: transparent;
+  @include font-size(16);
+  color: $baseTextColor;
+  // overflow: scroll;  // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+                        // ただし、浮いている要素はその対象にならない
+
+  section + section {
+    margin-top: 100px;
   }
 }
 
