@@ -2,9 +2,7 @@
 // YUIベースのリセットCSS
 *{
 	box-sizing: border-box;
-  // font-family: sans-serif,"Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", "ヒラギノ角ゴシック" ;
-  // font-family: -apple-system,BlinkMacSystemFont,"\6E38\30B4\30B7\30C3\30AF   Medium","Yu Gothic Medium","\6E38\30B4\30B7\30C3\30AF\4F53",YuGothic,"Hiragino Kaku Gothic ProN","Helvetica Neue",Meiryo,sans-serif ;
-  font-family: NotoSansJP;
+  font-family: NotoSansJP, sans-serif,"Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", "ヒラギノ角ゴシック";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -22,14 +20,14 @@ body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  // @include font(16);
   font-size: 1em;
   line-height: 1;
 }
 
 a,
-a:visited,
-a:link {
+a:link,
+a:hover,
+a:visited {
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
@@ -40,11 +38,16 @@ a:link {
 
 a,
 a:link,
-a p,a span,a div{
+a p,
+a span,
+a div {
   color: $linkTextColor;
   transition: color  ease-in-out 200ms;
 }
-a p:hover,a span:hover,a:hover, a div:hover {
+a:hover,
+a p:hover,
+a span:hover,
+a div:hover {
   color: $subBlueColor;
 }
 a:visited {

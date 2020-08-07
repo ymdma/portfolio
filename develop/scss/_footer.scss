@@ -1,6 +1,5 @@
 
 footer {
-  // height: 400px;
   display: flex;
   align-items: flex-end;
   height: fit-content;
@@ -13,9 +12,7 @@ footer {
 
     width: 100%;
     span {
-      position: relative;
-      top: 0.3rem;
-      left: 0.08rem;
+      @include position (relative, 0.3rem, null, null, 0.08rem);
       @include font-size(18);
     }
   }

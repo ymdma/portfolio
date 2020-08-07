@@ -10,13 +10,13 @@ $image_path: $root + $image;
 // }
 
 
-// 縦・センター
-@mixin flex_center-column() {
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
+// // 縦・センター
+// @mixin flex_center-column() {
+//   display:flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
 
 // 横並び

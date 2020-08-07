@@ -12,8 +12,7 @@
     width: 100%;
     height: fit-content;
     margin-bottom: 4%;
-    background: transparent;
-
+    @include bg-transparent;
     // mq //
     @include sp {
       // 1×4
@@ -91,17 +90,16 @@
         height: 0;
 
         h2 {
-          position: absolute;
-          top: calc(1.5rem + 149px);
-          left: 1rem;
+          @include position(
+            absolute, calc(1.5rem + 149px), null, null, 1rem);
           height: 2rem;
           font-size: 2rem;
-          color: $baseTextColor;
+          @include text-color;
         }
       } // &_inner
 
       &__thumb-wrap  {
-        @include flex_center-column;
+        @include flex--column__center;
         width: 298px;
         border-radius: 0.1rem;
         border: solid #77777722 0.5px;
@@ -153,14 +151,13 @@
 
 .c-portfolio__comment {
   display: none;
-  position: relative;
-  top: -25px;
-  left: -50%;
+  @include position (
+    relative -25px, null, null, -50% );
   padding: 0.5rem;
   margin-bottom: -200px;
   border: dotted orange 1px;
   background:#ffffff22;
-  color: $baseTextColor;
+  @include text-color;
   @include font-size(14);
   @include line-height(16);
   // mq //
@@ -181,7 +178,7 @@
     top: -20px;
     left: -10%;
     background:#ffffffee;
-    color: $baseBlackColor;
+    @include text-color($baseBlackColor);
   }
   @include pc1 {
     background:#ffffffaa;
@@ -194,6 +191,6 @@
 
 }
 
-.c-portfolio:hover > .c-portfolio__comment {
+.c-portfolio:hover .c-portfolio__comment {
   display: block;
 }

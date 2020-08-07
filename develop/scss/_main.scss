@@ -5,12 +5,12 @@
 .p-content-section {
   width: 100%;
   height: fit-content;
-  background: transparent;
+  @include bg-transparent;
 }
 .content-headline1 {
   width: 100%;
   text-align: center;
-  color: $baseBlackColor;
+  @include text-color($baseBlackColor);
   // mq //
   @include sp {
     @include font-size(20);
@@ -39,28 +39,25 @@
 
 body{
   background: $baseWhiteColor;
-
-  overflow: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+  overflow-y: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
                     // ただし、浮いている要素はその対象にならない
 }
 
 .page-wrap {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   margin: 0;
   padding: 0;
-  background: transparent;
+  @include bg-transparent;
 }
 
 .main {
-  width: 100%;
-  height: 100%;
+  @include full-size;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   padding-top: 105vh; // header分
-  background: transparent;
+  @include bg-transparent;
   @include font-size(16);
-  color: $baseTextColor;
+  @include text-color;
   // overflow: scroll;  // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
                         // ただし、浮いている要素はその対象にならない
 
@@ -71,27 +68,23 @@ body{
 
 // TITLE (name)
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+
+    @include position (absolute, 0, 0, null, 0);
     width: 100%;
     height: 38.2%;
-    background: transparent;
-
+    @include bg-transparent;
   h1 {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    @include position (absolute, 100%, null, null, 0);
     width: 50%;
     padding: 0 0 0 10%;
-    background: transparent;
+    @include bg-transparent;
     @include font-size(48);
     font-weight: 400;
     text-align: center;
     color: black;
     white-space: nowrap;
-    transform: translateY(-100%);
+
+    @include centering-fix(0, -100%);
     // mq //
     @include sp {
       @include font-size(20);
@@ -106,17 +99,15 @@ header {
 
     span {
       display: block;
-      position: absolute;
-      top: 50%;
-      left: 100%;
+      @include position (absolute, 50%, null, null, 100%);
       width: 100%;
       padding: 0 10% 0 0;
-      background: transparent;
+      @include bg-transparent;
       @include font-size(24);
       font-weight: 400;
       text-align: center;
-      color: $baseTextColor;
-      transform: translateY(-50%);
+      @include text-color;
+      @include centering-fix(0, -50%);
       // mq //
       @include sp {
         @include font-size(12);
@@ -137,89 +128,3 @@ header {
 
 
 
-.c-scroll-btn--down {
-  position: fixed;
-  top: 88%;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  transform: translateX(-50%);
-  background-image: url(../images/scroll_btn_down.svg);
-  background-size: 75%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: opacity ease-in-out 200ms;
-  opacity: .1;
-  &:hover {
-    opacity: 1;
-  }
-  &[state="show"]{
-    display: block;
-  }
-  &[state="hide"]{
-    display: none;
-  }
-}
-.c-scroll-btn--up {
-  position: fixed;
-  top: 88%;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background-image: url(../images/scroll_btn_up.svg);
-  background-size: 75%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transform: translate(-50%, 0%);
-
-  transition: opacity ease-in-out 200ms;
-  opacity: .1;
-  &:hover {
-    opacity: 1;
-  }
-  &[state="show"]{
-    display: block;
-  }
-  &[state="hide"]{
-    display: none;
-  }
-}
-.please-scroll {
-  display: none;
-  position: fixed;
-  top: 88%;
-  left: 50%;
-  width: fit-content;
-  height: fit-content;
-  transform: translate(-50%,-200%);
-  color: $baseTextColor;
-  @include font-size(14);
-  font-weight: 400;
-  letter-spacing: 0.8px;
-}
-.c-scroll-btn--down:hover + .please-scroll,
-.c-scroll-btn--up:hover + .please-scroll {
-  display: block;
-}
-
-
-
-header, h1#pageTittle, .c-scroll-btn--down, .p-profile, .p-portfolios, .p-skills {
-  opacity: 0;
-  
-}
-
-// // // // // //
-// クラス制御 //
-// // // // // //
-
-.is-hidden {
-  display: none;
-  opacity: 0;
-  transition: display ease-in 0ms 300ms, opacity ease-in 300ms 0ms;
-}
-
-.inview {
-opacity:1;
-transition: opacity ease-in 1000ms 30ms;
-}
