@@ -143,19 +143,25 @@
     @include font-size(16);
     @include btn();
   }
-  > a + a {
+  // > a + a {
+  //   border-color: $baseBlueColor;
+  //   // margin-top: 25px;
+  //   margin-top: 55px;
+  // }
+  > a:nth-of-type(1) {
     border-color: $baseBlueColor;
-    margin-top: 25px;
+    // margin-top: 25px;
+    margin-bottom: 30px;
   }
 }
 
 .c-portfolio__comment {
-  display: none;
-  @include position ( relative, -25px, null, null, -50% );
+  @include none;
+  @include position ( relative, -25px, null, null, -10% );
   padding: 0.5rem;
   margin-bottom: -200px;
   border: dotted orange 1px;
-  background:#ffffff22;
+  background:#ffffffee;
   @include text-color;
   @include font-size(14);
   @include line-height(16);
@@ -168,28 +174,48 @@
     &::before {
       content: "▼";
       top: 0;
-      width: fit-content;
-      height: fit-content;
-
+      @include fit-content;
     }
   }
   @include tb {
     top: -20px;
     left: -10%;
-    background:#ffffffee;
+    // background:#ffffffee;
     @include text-color($baseBlackColor);
   }
   @include pc1 {
-    background:#ffffffaa;
+    // background:#ffffffaa;
   }
   @include pc2 {
   }
   @include up {
+    top: -20px;
+    left: -10%;
   }
   // mq //
-
 }
 
-.c-portfolio:hover > .c-portfolio__comment {
+.c-portfolio:hover .c-portfolio__comment {
+  display: block;
+}
+
+.comment-to-this-site {
+  @include none;
+  height: 25px;
+  width: fit-content;
+  max-width: 320px;
+  margin: 0 auto;
+  margin-top: -25px; // この要素が挿入されることで増える分のスペースを詰める
+  padding: 0.5rem;
+  border: dotted orange 1px;
+  background:#ffffffee;
+  @include text-color;
+  @include font-size(14);
+  @include line-height(16);
+  // transform: translate(0,-3px);
+  transform: translate(0,-250%);
+  word-break: none;
+}
+.link-to-this-site-github:hover + .comment-to-this-site {
   display: block;
 }
