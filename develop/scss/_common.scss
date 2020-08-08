@@ -34,7 +34,7 @@
 
 .c-scroll-btn--down,
 .c-scroll-btn--up {
-  @include position( $p: fixed, $t: 88%, $l: 50%);
+  @include position( $p: fixed, $t: 86%, $l: 50%);
   width: 50px;
   height: 50px;
   @include centering-fix($x: -50%, $y: 0%,);
@@ -51,14 +51,16 @@
 }
 
 .c-scroll-btn--down {
-  background-image: url(../images/scroll_btn_down.svg);}
+  background-image: url(../images/scroll_btn_down.svg);
+}
 .c-scroll-btn--up {
-  background-image: url(../images/scroll_btn_up.svg);}
+  background-image: url(../images/scroll_btn_up.svg);
+}
 
 
 .please-scroll {
   @include none;
-  @include position($p: fixed, $t: 88%, $l:50%);
+  @include position($p: fixed, $t: 86%, $l:50%);
   @include fit-content;
   @include centering-fix($x:-50% , $y: -200% );
   @include text-color;
@@ -69,6 +71,10 @@
 .c-scroll-btn--down:hover + .please-scroll,
 .c-scroll-btn--up:hover + .please-scroll {
   display: block;
+}
+
+.c-scroll-btn--up + .please-scroll {
+  background: #ffffffcc;
 }
 
 

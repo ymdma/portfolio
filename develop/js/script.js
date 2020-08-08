@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   profileHeight();
   toggleScrollBtn();
   scrollEvent();
-
+  smoothScroll()
 });
 
 
@@ -354,3 +354,19 @@ const toggleScrollBtn = () => {
     }
   }
 }
+
+
+// scrollBtnRvs  return to auto!
+const smoothScroll = () => {
+  const scrollBtnRvs = document.getElementById('scrollBtnRvs');
+
+  scrollBtnRvs.addEventListener('click',() => {
+
+    window.scrollTo({
+      top:0,
+      behavior: "smooth"
+    });
+  })
+
+}
+

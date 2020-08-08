@@ -1,7 +1,7 @@
 # my portfolio site
 
 ハブとなるポートフォリオサイトを制作しました。<br>
-以前作ったものにもリンクを貼っています。
+これ以前に制作したものにもリンクを貼っています。
 
 ## URL
   :link: [https://ymdma--portfolio.web.app/](https://ymdma--portfolio.web.app/)
@@ -10,7 +10,11 @@
 
 ## 制作環境
 
-macOS Mojave
+- macOS Mojave
+- メインブラウザはchrome
+- VSCode
+- Pug,Sass,JavaScript,JSON(データ置きとして),webpack4,globule,babel
+- adobe XD,Photoshop
 
 ## 動作確認済み
 
@@ -32,14 +36,16 @@ macOS Mojave
   ###  windows10
   - IE
 
-      InternetExplorerは正常に動作しませんので、IE以外のブラウザでアクセスしてください。
-
+      InternetExplorerは正常に動作しませんので、IE以外のブラウザでアクセスしてください。<br>
+      （メッセージが出ます。）
 <br>
 
 ## 制作日数
 
-- 数日<br>
+- 基本は数日（その後細かく修正や付け足しをしています）<br>
+
 （どういうデザインにするかだったり、何をどう作るかを考えるのに一番時間がかかりました。）
+
 
 ## 仕組み・工夫・反省 等
 
