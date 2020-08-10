@@ -1,0 +1,15 @@
+.p-description {
+  @extend .p-content-section;
+  @include flex--column__center();
+  margin-bottom: 200px;
+  opacity: 0;
+
+  h1{
+    @extend .content-headline1;
+  }
+  p {
+    @include full-size;
+    @include line-height(24);
+    @include font-size(18);
+  }
+}

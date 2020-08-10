@@ -48,6 +48,7 @@
     filter: brightness(1);
     z-index: -1;
     clip-path: polygon(0% 0%, 91% 0%, 74.5% 50%, 91% 100%, 0% 100%);
+
     // mq //
     @include sp {
       background-position: center center ;
@@ -129,7 +130,6 @@
     top: 0;
     right: 0;
     @include position( absolute, 0, 0, null, null );
-
     height: 100%;
     width: 62vw;
     background: $baseBlueColor;
@@ -141,6 +141,5 @@
       width: 77%;
     }
     // mq //
-
   }
 }

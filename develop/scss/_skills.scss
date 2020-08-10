@@ -70,7 +70,7 @@
       background-repeat: no-repeat;
       background-position: center center;
       opacity: 0.75;
-      filter: drop-shadow(8px 8px 8px #aaaaaa00);
+      filter: drop-shadow( 8px 8px 8px #aaaaaa00 );
       transition: opacity ease-in-out 100ms,filter ease-in-out 100ms;
       // mq //
       @include sp {
@@ -85,22 +85,21 @@
       // mq //
       &:hover {
         opacity: 1;
-        filter: drop-shadow(8px 8px 8px #ffb23fd2);
+        filter: drop-shadow( 8px 8px 8px #ffb23fd2 );
       }
     }
   }
 }
 
 
-
-
-//  JSで内容をappend
-.p-skill-display{
+// *JSで内容をappend*
+.p-skill-display {
   position: relative;
   top: 0;
-  left: 0%;
+  left: 0;
   margin-bottom: 20rem;
   opacity: 0;
+
   // mq //
   @include up {
     padding: 0 10%;
@@ -109,9 +108,9 @@
   .left {
     display: flex;
     justify-content: center;
-    @include position ( relative, 0, null, null, 0);
-    height: 0;
+    @include position ( relative, 0, null, null, 0 );
     transition: height ease .5s, width ease .5s;
+
     // mq //
     @include sp {
       width: 0%;
@@ -128,13 +127,14 @@
     @include up {
       width: 50%;
     }
+
     // mq //
     &::before {
-      content:"使用経験";
+      content: "使用経験";
       @include position ( absolute, 0, null, null, 0);
       @include full-size;
       background-color: $subBlueColor;
-      @include text-color($baseWhiteColor );
+      @include text-color( $baseWhiteColor );
       @include font-size(30);
       @include line-height(130);
       text-align: center;
@@ -186,10 +186,10 @@
 
       // mq //
       @include sp {
-        clip-path:polygon(0% 0%, 53% 0%, 56.5% 33%, 100% 100%, 0% 100%)
+        clip-path: polygon(0% 0%, 53% 0%, 56.5% 33%, 100% 100%, 0% 100%)
       }
       @include tb {
-        clip-path:polygon(0% 0%, 57% 0%, 59.5% 42%, 95% 100%, 0% 100%)
+        clip-path: polygon(0% 0%, 57% 0%, 59.5% 42%, 95% 100%, 0% 100%)
       }
       // mq //
     }
@@ -237,19 +237,20 @@
       @include flex--column__center;
       max-height: 64px;
       @include bg-transparent;
-      img{
+      img {
         width: auto;
         height: auto;
         max-width: 128px;
-        max-height:64px;
+        max-height: 64px;
+
         // mq //
         @include sp {
           max-width: 88px;
-          max-height:48px;
+          max-height: 48px;
         }
         @include tb {
           max-width: 96px;
-          max-height:64px;
+          max-height: 64px;
         }
         // mq //
       }

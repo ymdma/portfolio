@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // /* ==========================
-//   Global Variable
+//   Global Variables / Objects
 // =========================== */
 
 let currentLocation = 'upper'; // スクロール位置が上半分か下半分か
@@ -33,7 +33,11 @@ Yamada = {
   profile: {
           name: '<ruby><rb>山田</rb><rp>(</rp><rt>ヤマダ</rt><rp>)</rp><ruby>&nbsp;<ruby><rb>将登</rb><rp>(</rp><rt>マサト</rt><rp>)</rp><ruby>',
           birth: '1985年11月5日生',
-          comment: '大学・専門学校卒業後、約9年間レコーディングエンジニアとして働く。<br>2017年、今後の需要を考え、音楽業界から広告業界へ身を移す。しかし、新たに所属した広告音楽の制作会社(TVCMメイン)でも、マスメディアに対しての広告費の削減等、時代の流れによる需要減が進む。<br>そんな中、グループ再編の為に所属していた会社が吸収合併される。スタジオも閉鎖となる。（会社は事実上の解散となる。）これを機会に、今後の生き方を考える。<br>2019年、「人生は一度きり、大きく挑戦するならこれは最後のチャンス！」と考え、Webのエンジニアを目指す。プログラミングスクールに通った後、現在転職活動中。'
+          comment: `
+          &nbsp;大学・専門学校卒業後、約9年間レコーディングエンジニアとして働く。主に、作品としての音楽や広告付帯の音楽の制作を行う。<br>
+          &nbsp;2019年、所属していた制作会社がグループ再編の為に吸収合併され、部門閉鎖。それに伴い退職する。<br>
+          その後、（丁度ライフスタイルの変化があったこともあり、）これを機会と捉え、サウンドのエンジニアからWebのエンジニアへの転身を決意する。<br>
+          &nbsp;プログラミングスクールのTECH::EXPERTに通った後、現在転職活動中。`
       },
   skill: {
           pc: {
@@ -69,7 +73,7 @@ Yamada = {
                 sourcetree : ( () => { pushContent( 'test',  `${technology('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
                 nginx      : ( () => { pushContent( 'test',  `${technology('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
                 mysql      : ( () => { pushContent( 'test',  `${technology('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                webpack    : ( () => { pushContent( 'test',  `${technology('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobule です。' )}`) }),
+                webpack    : ( () => { pushContent( 'test',  `${technology('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
                 docker     : ( () => { pushContent( 'test',  `${technology('docker','composeからの構築程度で、初級レベルです。' )}`) }),
                 aws        : ( () => { pushContent( 'test',  `${technology('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
               firebase     : ( () => { pushContent( 'test',  `${technology('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
@@ -270,17 +274,19 @@ const skillShow = () => {
 
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
-                            const
-            pageTittle = document.getElementById('pageTittle'),
-        skillsSection  = document.getElementById('skillsSection'),
-  skillsAppendContent  = document.getElementById('skillsAppendContent'),
-      portFolioSection = document.getElementById('portFolioSection'),
-        profileSection = document.getElementById('profileSection');
+  const
+            pageTittle  = document.getElementById('pageTittle'),
+            description = document.getElementById('description'),
+        skillsSection   = document.getElementById('skillsSection'),
+  skillsAppendContent   = document.getElementById('skillsAppendContent'),
+      portFolioSection  = document.getElementById('portFolioSection'),
+        profileSection  = document.getElementById('profileSection');
 
   if (isIE()) {
   // IEの場合セットしてあるopacityを戻す
 
     pageTittle.style.opacity = '1';
+    description.style.opacity = '1';
     skillsSection.style.opacity = '1';
     skillsAppendContent.style.opacity = '1';
     portFolioSection.style.opacity = '1';
@@ -311,6 +317,7 @@ const scrollEvent = () => {
     const io = new IntersectionObserver(cb, options);
 
     io.observe(pageTittle)
+    io.observe(description)
     io.observe(profileSection)
     io.observe(skillsSection)
     io.observe(skillsAppendContent)

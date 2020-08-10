@@ -37,7 +37,7 @@
 
 // // // // // //
 
-body{
+body {
   background: $baseWhiteColor;
   overflow-y: scroll; // これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
                     // ただし、浮いている要素はその対象にならない
