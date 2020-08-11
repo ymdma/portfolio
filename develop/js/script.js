@@ -34,10 +34,9 @@ Yamada = {
           name: '<ruby><rb>山田</rb><rp>(</rp><rt>ヤマダ</rt><rp>)</rp><ruby>&nbsp;<ruby><rb>将登</rb><rp>(</rp><rt>マサト</rt><rp>)</rp><ruby>',
           birth: '1985年11月5日生',
           comment: `
-          &nbsp;大学・専門学校卒業後、約9年間レコーディングエンジニアとして働く。主に、作品としての音楽や広告付帯の音楽の制作を行う。<br>
-          &nbsp;2019年、所属していた制作会社がグループ再編の為に吸収合併され、部門閉鎖。それに伴い退職する。<br>
-          その後、（丁度ライフスタイルの変化があったこともあり、）これを機会と捉え、サウンドのエンジニアからWebのエンジニアへの転身を決意する。<br>
-          &nbsp;プログラミングスクールのTECH::EXPERTに通った後、現在転職活動中。`
+          &nbsp;大学・専門学校卒業後、約9年間レコーディングエンジニアとして働く。主に音楽業界、広告業界において、多くのプロデューサーやミュージシャン、アーティストとの仕事を経験し、その真摯に取り組む姿勢と、最後までやり遂げる気概が評価され、活躍する。<br>
+          &nbsp;2019年、転機を迎え、「人生は一度きり、大きく挑戦するならこれは最後のチャンス！」と考え、サウンドのエンジニアからWebのエンジニアへの転身を決意する。<br>
+          &nbsp;プログラミングスクールおよび独学で技術を学び、現在活躍の場を探索中。`
       },
   skill: {
           pc: {
@@ -145,15 +144,16 @@ Yamada = {
 
 
 
-function setAriaExpanded(target) {
-  const checkProp = target.getAttribute('aria-expanded')
-  if (checkProp === 'true') {
-    target.setAttribute('aria-expanded', false);
-  }
-  else {
-    target.setAttribute('aria-expanded', true);
-  }
-};
+// function setAriaExpanded(target) {
+//   console.log(target)
+//   const checkProp = target.getAttribute('aria-expanded')
+//   if (checkProp === 'true') {
+//     target.setAttribute('aria-expanded', false);
+//   }
+//   else {
+//     target.setAttribute('aria-expanded', true);
+//   }
+// };
 
 
 // /* ==========================
@@ -253,7 +253,7 @@ const skillShow = () => {
 }
 
 
-// // HBG Btn
+// HBG Btn
 // const hbg = () => {
 //   const
 //       hamburgerBtn = document.getElementById('hamburgerBtn'),
@@ -265,12 +265,13 @@ const skillShow = () => {
 //     setAriaExpanded(hbg);
 //     setAriaExpanded(navList);
 //   })
-//   closeButton.onclick = () => {
-//     setAriaExpanded(hamburgerBtn);
-//     setAriaExpanded(hbg);
-//     setAriaExpanded(navList);
-//   }
+  // closeButton.onclick = () => {
+  //   setAriaExpanded(hamburgerBtn);
+  //   setAriaExpanded(hbg);
+  //   setAriaExpanded(navList);
+  // }
 // }
+
 
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
