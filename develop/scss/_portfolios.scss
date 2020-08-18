@@ -180,11 +180,9 @@
   @include tb {
     top: -20px;
     left: -10%;
-    // background:#ffffffee;
     @include text-color($baseBlackColor);
   }
   @include pc1 {
-    // background:#ffffffaa;
   }
   @include pc2 {
   }
@@ -197,6 +195,8 @@
 
 .c-portfolio:hover .c-portfolio__comment {
   display: block;
+  // display: inline-block;
+  // margin-bottom: -200px;
 }
 
 .comment-to-this-site {
@@ -215,11 +215,12 @@
   // transform: translate(0,-3px);
   transform: translate(0,-250%);
   word-break: none;
-        // mq //
-        @include sp {
-          display: block;
-        }
-        // mq //
+
+  // mq //
+  @include sp {
+    display: block;
+  }
+  // mq //
 }
 .link-to-this-site-github:hover + .comment-to-this-site {
   display: block;

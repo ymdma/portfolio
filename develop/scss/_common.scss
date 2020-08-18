@@ -72,7 +72,6 @@ body {
 .c-scroll-btn--up {
   width: 50px;
   height: 50px;
-  @include centering-fix($x: -50%, $y: 0%,);
   background-image: url(../images/scroll_btn_down.svg);
   background-size: 75%;
   background-repeat: no-repeat;
@@ -86,13 +85,17 @@ body {
 }
 
 .c-scroll-btn--down {
-  @include position ( fixed, 86%, null, null, 50%);
+  @include position ( fixed, 86%, null, null, 50% );
+  @include centering-fix( -50%, 0%);
   background-image: url(../images/scroll_btn_down.svg);
   opacity: 0.1;
 }
 .c-scroll-btn--up {
-  @include position ( fixed, 86%, null, null, 0);
+  @include position ( fixed, null, 10px, 70px, null );
+  @include centering-fix( 0%, 0% ); // リセット
   background-image: url(../images/scroll_btn_up.svg);
+  opacity: 0.75;
+
 }
 
 
@@ -100,7 +103,7 @@ body {
 .please-scroll {
   @include none;
   @include fit-content;
-  @include centering-fix($x:-50% , $y: -200% );
+  @include centering-fix( -50%, -200% );
   @include text-color;
   @include font-size(14);
   font-weight: 400;
@@ -117,15 +120,16 @@ body {
 }
 
 .c-scroll-btn--up:hover + .please-scroll {
-  @include position ( fixed, null, -17.5px, 50px, null);
+  @include position ( fixed, null, -35px, 84px, null );
+  @include centering-fix( -50%, 0 );
   color: black;
 
-  &::after{
+&::after{
     content: ">>";
     display: inline-block;
-    padding: 0 10px;
+    padding: 0 15px;
     background: #ffffffcc;
-    color: black;
+    color: #777;
     @include font-size(14);
   }
 }

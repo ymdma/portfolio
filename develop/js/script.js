@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBtnMove()
   scrollFromNav()
   scrollUpBtnMove()
+  buildPortfolios()
 });
 
 
@@ -57,53 +58,57 @@ Yamada = {
           },
           other: 'RecordingEngineer & Mixer',
           web: {
-                html       : ( () => { pushContent( 'test',  `${technology('html','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                haml       : ( () => { pushContent( 'test',  `${technology('haml','TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。' )}`) }),
-                pug        : ( () => { pushContent( 'test',  `${technology('pug','スクール終了後、独学にて学習しました。問題なく使用できます。' )}`) }),
-                css        : ( () => { pushContent( 'test',  `${technology('css','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                sass       : ( () => { pushContent( 'test',  `${technology('sass','TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。' )}`) }),
-                js         : ( () => { pushContent( 'test',  `${technology('js','主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。' )}`) }),
-                jQuery     : ( () => { pushContent( 'test',  `${technology('jQuery','DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                vue        : ( () => { pushContent( 'test',  `${technology('vue','独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)' )}`) }),
-                nuxt       : ( () => { pushContent( 'test',  `${technology('nuxt','独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。' )}`) }),
-                ruby       : ( () => { pushContent( 'test',  `${technology('ruby','TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。' )}`) }),
-                rails      : ( () => { pushContent( 'test',  `${technology('rails','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                php        : ( () => { pushContent( 'test',  `${technology('php','少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。' )}`) }),
-                wordPress  : ( () => { pushContent( 'test',  `${technology('wordPress','個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）' )}`) }),
-                slack      : ( () => { pushContent( 'test',  `${technology('slack','使用できます。' )}`) }),
-                git        : ( () => { pushContent( 'test',  `${technology('git','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                gitHub     : ( () => { pushContent( 'test',  `${technology('gitHub','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                sourcetree : ( () => { pushContent( 'test',  `${technology('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
-                nginx      : ( () => { pushContent( 'test',  `${technology('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                mysql      : ( () => { pushContent( 'test',  `${technology('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                webpack    : ( () => { pushContent( 'test',  `${technology('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
-                docker     : ( () => { pushContent( 'test',  `${technology('docker','composeからの構築程度で、初級レベルです。' )}`) }),
-                aws        : ( () => { pushContent( 'test',  `${technology('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-              firebase     : ( () => { pushContent( 'test',  `${technology('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
+                html       : ( () => { pushContent( 'test',  `${skillsHTML('html','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
+                haml       : ( () => { pushContent( 'test',  `${skillsHTML('haml','TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。' )}`) }),
+                pug        : ( () => { pushContent( 'test',  `${skillsHTML('pug','スクール終了後、独学にて学習しました。問題なく使用できます。' )}`) }),
+                css        : ( () => { pushContent( 'test',  `${skillsHTML('css','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
+                sass       : ( () => { pushContent( 'test',  `${skillsHTML('sass','TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。' )}`) }),
+                js         : ( () => { pushContent( 'test',  `${skillsHTML('js','主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。' )}`) }),
+                jQuery     : ( () => { pushContent( 'test',  `${skillsHTML('jQuery','DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
+                vue        : ( () => { pushContent( 'test',  `${skillsHTML('vue','独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)' )}`) }),
+                nuxt       : ( () => { pushContent( 'test',  `${skillsHTML('nuxt','独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。' )}`) }),
+                ruby       : ( () => { pushContent( 'test',  `${skillsHTML('ruby','TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。' )}`) }),
+                rails      : ( () => { pushContent( 'test',  `${skillsHTML('rails','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
+                php        : ( () => { pushContent( 'test',  `${skillsHTML('php','少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。' )}`) }),
+                wordPress  : ( () => { pushContent( 'test',  `${skillsHTML('wordPress','個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）' )}`) }),
+                slack      : ( () => { pushContent( 'test',  `${skillsHTML('slack','使用できます。' )}`) }),
+                git        : ( () => { pushContent( 'test',  `${skillsHTML('git','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
+                gitHub     : ( () => { pushContent( 'test',  `${skillsHTML('gitHub','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
+                sourcetree : ( () => { pushContent( 'test',  `${skillsHTML('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
+                nginx      : ( () => { pushContent( 'test',  `${skillsHTML('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+                mysql      : ( () => { pushContent( 'test',  `${skillsHTML('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+                webpack    : ( () => { pushContent( 'test',  `${skillsHTML('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
+                docker     : ( () => { pushContent( 'test',  `${skillsHTML('docker','composeからの構築程度で、初級レベルです。' )}`) }),
+                aws        : ( () => { pushContent( 'test',  `${skillsHTML('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+              firebase     : ( () => { pushContent( 'test',  `${skillsHTML('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
           },
           portfolio: {
                 mercari: {
-                        title  : 'mercariコピーサイト',
+                        title  : 'mercari (copy)',
                         url    : 'http://13.115.148.93/',
                         gitHub : 'https://github.com/ymdma/freemarket_sample_60c',
+                        image    : '/assets/images/thumbs/thumb_mercari.png',
                         comment: '[ Basic認証 ID:mercari PASS:1031 ]<br><br>TECH::EXPERTでのチーム開発（4人）にて制作しました。<br>メルカリのクローンサイトを制作し、スクラムを組んでのアジャイル開発を経験しました。<br>主な担当箇所としては、要件定義、DB設計、Pay.jp(開発環境)、 SNS認証(開発環境) 等です。'
                 },
                 groupBlog: {
                         title  : 'GroupBlog',
                         url    : 'http://52.193.98.166/',
                         gitHub : 'https://github.com/ymdma/group_blog',
+                        image    : '/assets/images/thumbs/thumb_GroupBlog_create-group.png',
                         comment: 'グループ機能を持ったショートブログ共有アプリケーション。<br>ページ遷移を制限するため、indexに機能を集めました。その為Ajaxを多用しています。'
                 },
                 hiraganaPorker: {
                         title  : 'ひらがなポーカー',
                         url    : 'https://hiragana-de-porker.web.app/',
                         gitHub : 'https://github.com/ymdma/hiragna-porker',
+                        image    : '/assets/images/thumbs/thumb_hiragana.png',
                         comment: '初めて作ったJavaScriptによるゲーム。<br>ひらがなを使ったカードゲームを２人プレイ用のJavaScriptゲームで再現しました。<br>面白い言葉を作った方が勝ち！'
                 },
                 countDown: {
                         title  : 'countDown',
                         url    : 'https://count--down.web.app/',
                         gitHub : 'https://github.com/ymdma/count-down',
+                        image    : '/assets/images/thumbs/thumb_CountDown.png',
                         comment: 'JavaScriptによるミニゲーム。<br>1から25までの数字を順番にクリック（タップ）していき、早いタイムを目指すゲームです。<br>よりよいコードを書けるように、可読性やメンテナンス性を高めるなど意識しました。'
                 }
                 // searchTeacher: {
@@ -149,7 +154,6 @@ Yamada = {
 
 
 function setAriaExpanded(target) {
-  // console.log(target)
   const checkProp = target.getAttribute('aria-expanded')
   if (checkProp === 'true') {
     target.setAttribute('aria-expanded', false);
@@ -165,6 +169,41 @@ function setAriaExpanded(target) {
 // =========================== */
 
 
+// portfolio オブジェクトより append
+const buildPortfolios = () => {
+
+  const portfolios = Yamada.skill.portfolio;
+  const portfolioAppendTargetArea = document.getElementById('portfolioAppendTargetArea')
+
+  Object.keys(portfolios).forEach( data => {
+
+    const portfolioOne = document.createElement('a');
+
+    portfolioOne.classList.add('c-portfolio');
+    portfolioOne.setAttribute('id',`${data}`);
+    portfolioOne.setAttribute('href',`${portfolios[data].url}`);
+    portfolioOne.setAttribute('title','ポートフォリオサイトへのリンク' );
+    portfolioAppendTargetArea.appendChild(portfolioOne);
+
+    pushContent(`${data}`, portfoliosHTML(data));
+  })
+}
+
+
+// portfolios
+function portfoliosHTML(data) {
+
+  return `<a class="c-portfolio" href="${Yamada.skill.portfolio[data].url}" title="ポートフォリオサイトへのリンク">
+            <div class="c-portfolio__title-wrap">
+              <h2>${Yamada.skill.portfolio[data].title}</h2>
+            </div>
+            <div class="c-portfolio__thumb-wrap">
+              <img src="${Yamada.skill.portfolio[data].image}"  alt="portfolio-image">
+            </div>
+            <p class="c-portfolio__comment">${Yamada.skill.portfolio[data].comment}</p>
+          </a> `;
+};
+
 
 // HTMLにプッシュ
 const pushContent = (target, str) => {
@@ -172,12 +211,12 @@ const pushContent = (target, str) => {
 }
 
 // Skills
-function technology(key,str) {
+function skillsHTML(key,str) {
   return `<div>
             <p class="name" role="title">${Tech[key].name}</p>
             <p class="logo"><img src="${Tech[key].logo}"></p>
           </div>
-          <p class="comment">${str}</p> ` ;
+          <p class="comment">${str}</p> `;
 };
 
 // オブジェクトデータを呼び出す
