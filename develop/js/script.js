@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   profileHeight();
   toggleScrollBtn();
   scrollEvent();
-  scrollBtnMove()
-  scrollFromNav()
-  scrollUpBtnMove()
-  buildPortfolios()
+  scrollBtnMove();
+  scrollFromNav();
+  scrollUpBtnMove();
+  buildPortfolios();
 });
 
 
@@ -50,37 +50,37 @@ Yamada = {
               'Windows'
             ],
             software: [
-              'DAW',
-              'Office',
-              '映像編集',
-              '画像編集(Photoshop, Illustrator)'
+              'DAW (主にProTools、プロフェッショナルレベル)',
+              'Office(word, excel, power point)',
+              '映像編集(メジャーなもの、基礎レベル)',
+              '画像編集(Photoshop, Illustrator 基礎レベル)'
             ]
           },
-          other: 'RecordingEngineer & Mixer',
+          other: ['RecordingEngineer & Mixer', '制作プランニング'],
           web: {
-                html       : ( () => { pushContent( 'test',  `${skillsHTML('html','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                haml       : ( () => { pushContent( 'test',  `${skillsHTML('haml','TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。' )}`) }),
-                pug        : ( () => { pushContent( 'test',  `${skillsHTML('pug','スクール終了後、独学にて学習しました。問題なく使用できます。' )}`) }),
-                css        : ( () => { pushContent( 'test',  `${skillsHTML('css','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                sass       : ( () => { pushContent( 'test',  `${skillsHTML('sass','TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。' )}`) }),
-                js         : ( () => { pushContent( 'test',  `${skillsHTML('js','主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。' )}`) }),
-                jQuery     : ( () => { pushContent( 'test',  `${skillsHTML('jQuery','DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                vue        : ( () => { pushContent( 'test',  `${skillsHTML('vue','独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)' )}`) }),
-                nuxt       : ( () => { pushContent( 'test',  `${skillsHTML('nuxt','独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。' )}`) }),
-                ruby       : ( () => { pushContent( 'test',  `${skillsHTML('ruby','TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。' )}`) }),
-                rails      : ( () => { pushContent( 'test',  `${skillsHTML('rails','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                php        : ( () => { pushContent( 'test',  `${skillsHTML('php','少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。' )}`) }),
-                wordPress  : ( () => { pushContent( 'test',  `${skillsHTML('wordPress','個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）' )}`) }),
-                slack      : ( () => { pushContent( 'test',  `${skillsHTML('slack','使用できます。' )}`) }),
-                git        : ( () => { pushContent( 'test',  `${skillsHTML('git','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                gitHub     : ( () => { pushContent( 'test',  `${skillsHTML('gitHub','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                sourcetree : ( () => { pushContent( 'test',  `${skillsHTML('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
-                nginx      : ( () => { pushContent( 'test',  `${skillsHTML('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                mysql      : ( () => { pushContent( 'test',  `${skillsHTML('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                webpack    : ( () => { pushContent( 'test',  `${skillsHTML('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
-                docker     : ( () => { pushContent( 'test',  `${skillsHTML('docker','composeからの構築程度で、初級レベルです。' )}`) }),
-                aws        : ( () => { pushContent( 'test',  `${skillsHTML('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-              firebase     : ( () => { pushContent( 'test',  `${skillsHTML('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
+                html       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('html','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
+                haml       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('haml','TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。' )}`) }),
+                pug        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('pug','スクール終了後、独学にて学習しました。問題なく使用できます。' )}`) }),
+                css        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('css','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
+                sass       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('sass','TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。' )}`) }),
+                js         : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('js','主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。' )}`) }),
+                jQuery     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('jQuery','DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
+                vue        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('vue','独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)' )}`) }),
+                nuxt       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('nuxt','独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。' )}`) }),
+                ruby       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('ruby','TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。' )}`) }),
+                rails      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('rails','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
+                php        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('php','少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。' )}`) }),
+                wordPress  : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('wordPress','個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）' )}`) }),
+                slack      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('slack','使用できます。' )}`) }),
+                git        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('git','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
+                gitHub     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('gitHub','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
+                sourcetree : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
+                nginx      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+                mysql      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+                webpack    : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
+                docker     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('docker','composeからの構築程度で、初級レベルです。' )}`) }),
+                aws        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
+              firebase     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
           },
           portfolio: {
                 mercari: {
@@ -154,7 +154,7 @@ Yamada = {
 
 
 function setAriaExpanded(target) {
-  const checkProp = target.getAttribute('aria-expanded')
+  const checkProp = target.getAttribute('aria-expanded');
   if (checkProp === 'true') {
     target.setAttribute('aria-expanded', false);
   }
@@ -173,19 +173,19 @@ function setAriaExpanded(target) {
 const buildPortfolios = () => {
 
   const portfolios = Yamada.skill.portfolio;
-  const portfolioAppendTargetArea = document.getElementById('portfolioAppendTargetArea')
+  const portfolioAppendTargetArea = document.getElementById('portfolioAppendTargetArea');
 
   Object.keys(portfolios).forEach( data => {
 
     const portfolioOne = document.createElement('a');
 
     portfolioOne.classList.add('c-portfolio');
-    portfolioOne.setAttribute('id',`${data}`);
-    portfolioOne.setAttribute('href',`${portfolios[data].url}`);
-    portfolioOne.setAttribute('title','ポートフォリオサイトへのリンク' );
+    portfolioOne.setAttribute('id', `${data}`);
+    portfolioOne.setAttribute('href', `${portfolios[data].url}`);
+    portfolioOne.setAttribute('title', 'ポートフォリオサイトへのリンク' );
     portfolioAppendTargetArea.appendChild(portfolioOne);
 
-    pushContent(`${data}`, portfoliosHTML(data));
+    pushContent( `${data}`, portfoliosHTML(data) );
   })
 }
 
@@ -208,7 +208,7 @@ function portfoliosHTML(data) {
 // HTMLにプッシュ
 const pushContent = (target, str) => {
   document.getElementById(target).innerHTML = str;
-}
+};
 
 // Skills
 function skillsHTML(key,str) {
@@ -222,7 +222,7 @@ function skillsHTML(key,str) {
 // オブジェクトデータを呼び出す
 function callData (a1,a2,a3) {
   return Yamada[a1][a2][a3]();
-}
+};
 
 
 // profile
@@ -235,7 +235,7 @@ const appendProf = () => {
     li.innerHTML = `${e}`;
     profList.appendChild(li);
   });
-}
+};
 
 // profile のheight自動追従 リサイズ時用
 window.addEventListener('resize',() => profileHeight() );
@@ -250,7 +250,7 @@ const profileHeight = () => {
   let myDataHeight = document.getElementById('myData').clientHeight;
 
   setTimeout( fitHeight (profLeft, myDataHeight), 200);
-}
+};
 
 // profile のheight自動追従 (DOMContentLoaded・window/resize より呼出)
 const skillsHeight = () => {
@@ -258,29 +258,29 @@ const skillsHeight = () => {
   let skillDisplayHeight = document.getElementById('skillsRight').clientHeight;
 
   setTimeout( fitHeight (skillsLeft, skillDisplayHeight), 200);
-}
+};
 
 // heightを設定
 function fitHeight(target,size) {
   target.style.height = `${size}px`;
-}
+};
 
 const appendSkillList = () => {
 
   const webSkill = Yamada.skill.web;
   const skillList = document.getElementById('skillList');
 
-  Object.keys(webSkill).forEach(e => {
+  Object.keys(webSkill).forEach( e => {
 
     let logoURL = Tech[`${e}`]['logo'];
     let newLi = document.createElement('li');
 
-    newLi.setAttribute('alt',`${e}_logo-image`)
-    newLi.id = `${e}`
-    newLi.style.backgroundImage = `url(${logoURL})`
+    newLi.setAttribute('alt',`${e}_logo-image`);
+    newLi.id = `${e}`;
+    newLi.style.backgroundImage = `url(${logoURL})`;
     skillList.appendChild(newLi);
   })
-}
+};
 
 // skill comment
 const skillShow = () => {
@@ -296,7 +296,7 @@ const skillShow = () => {
       skillsHeight();
     })
   })
-}
+};
 
 
 // HBG Btn
@@ -313,7 +313,7 @@ const hbg = () => {
     setAriaExpanded(navList);
   })
 
-}
+};
 
 
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
@@ -327,7 +327,7 @@ const scrollEvent = () => {
     portfoliosSection   = document.getElementById('portfoliosSection'),
         profileSection  = document.getElementById('profileSection');
 
-  if (isIE()) {
+  if ( isIE() ) {
   // IEの場合セットしてあるopacityを戻す
 
     pageTittle.style.opacity = '1';
@@ -345,28 +345,29 @@ const scrollEvent = () => {
 
     entries.forEach( entry => {
 
-      if(entry.isIntersecting){
-        entry.target.classList.add('inview')
+      if( entry.isIntersecting ) {
+        entry.target.classList.add('inview');
         // observer.unobserve(entry.target);//止める
       } else {
         entry.target.classList.remove('inview');
       }
     })
   }
+
   const options = {
     rootMargin: "-100px 0px 0px 0px",
   }
 
     const io = new IntersectionObserver(cb, options);
 
-    io.observe(pageTittle)
-    io.observe(description)
-    io.observe(profileSection)
-    io.observe(skillsSection)
-    io.observe(skillsAppendContent)
-    io.observe(portfoliosSection)
+    io.observe(pageTittle);
+    io.observe(description);
+    io.observe(profileSection);
+    io.observe(skillsSection);
+    io.observe(skillsAppendContent);
+    io.observe(portfoliosSection);
   }
-}
+};
 
 
 
@@ -380,20 +381,20 @@ const toggleScrollBtn = () => {
 
   window.onscroll = () => {
     pageHeight = document.body.scrollHeight;
-    nowScroll = window.pageYOffset
-    winHeight = window.innerHeight
+    nowScroll = window.pageYOffset;
+    winHeight = window.innerHeight;
 
     if ( nowScroll >= pageHeight - winHeight ) {
-      scrollBtn.setAttribute('state','hide')
-      scrollBtnRvs.setAttribute('state','show')
+      scrollBtn.setAttribute('state','hide');
+      scrollBtnRvs.setAttribute('state','show');
     } else {
-      scrollBtn.setAttribute('state','show')
-      scrollBtnRvs.setAttribute('state','hide')
+      scrollBtn.setAttribute('state','show');
+      scrollBtnRvs.setAttribute('state','hide');
     }
 
 
   }
-}
+};
 
 
 // scrollBtnDown
@@ -403,10 +404,10 @@ const scrollBtnMove = () => {
   const scrollBtn = document.getElementById('scrollBtn');
 
   scrollBtn.addEventListener('mouseenter', () => {
-    manuallyDownScroll = setInterval(manuallyScroll, 100)
+    manuallyDownScroll = setInterval(manuallyScroll, 100);
   })
   scrollBtn.addEventListener('mouseleave', () => {
-    clearInterval(manuallyDownScroll)
+    clearInterval(manuallyDownScroll);
   })
 
   function manuallyScroll() {
@@ -414,8 +415,8 @@ const scrollBtnMove = () => {
       top: 50,
       behavior: "smooth"
     });
-  }
-}
+  };
+};
 
 const scrollUpBtnMove = () => {
 
@@ -428,8 +429,8 @@ const scrollUpBtnMove = () => {
         behavior: "smooth"
       });
     })
-  })
-}
+  });
+};
 
 // navからのスクロール
 const scrollFromNav = () => {
@@ -442,15 +443,15 @@ const scrollFromNav = () => {
       portfoliosSection = document.getElementById('portfoliosSection');
 
   toProfile.onclick = () => {
-    scrollToElement(profileSection)
+    scrollToElement(profileSection);
   }
   toSkills.onclick = () => {
-    scrollToElement(skillsSection)
+    scrollToElement(skillsSection);
   }
   toPortfolios.onclick = () => {
-    scrollToElement(portfoliosSection)
+    scrollToElement(portfoliosSection);
   }
-}
+};
 
 // navからのスクロール
 function scrollToElement(arrEle) {
@@ -462,4 +463,4 @@ function scrollToElement(arrEle) {
     top: y,
     behavior: "smooth"
   });
-}
+};
