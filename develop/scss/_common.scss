@@ -1,7 +1,41 @@
+// // common // //
+
+
+// ***** 全体 ***** //
+body {
+  background: $baseWhiteColor;
+  overflow: scroll;  // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう
+}
+
+.page-wrap {
+  @include full-size;
+  margin: 0;
+  padding: 0;
+  @include bg-transparent;
+}
+
+.main {
+  @include full-size;
+  margin: 0;
+  padding: 0;
+  padding-top: calc(100vh + 100px); // header分,読み込み幅100px
+  @include bg-transparent;
+  @include font-size(16);
+  @include text-color;
+  // overflow: scroll;  // *注意 これを指定しないと実効性のあるコンテンツまで親要素(main-pagewrap-body)が降りていってしまう(bodyで指定)
+  section + section {
+    margin-top: 100px;
+  }
+}
+
+// ****** ***** ***** //
+
+
+// ***** ALERT ***** //
 
 // IE用「サポート外のお知らせ」アラート
 .alertIE {
-  @include position ($p: fixed, $t: 0, $r: null, $b: null, $l: null);
+  @include position ( fixed, 0, null, null, null);
   @include flex--column__center;
   width: 100%;
   height: fit-content;
@@ -29,12 +63,13 @@
   }
 }
 
+// ****** ***** ***** //
 
+
+// ***** scroll btn ***** //
 // scroll btn
-
 .c-scroll-btn--down,
 .c-scroll-btn--up {
-  @include position( $p: fixed, $t: 86%, $l: 50%);
   width: 50px;
   height: 50px;
   @include centering-fix($x: -50%, $y: 0%,);
@@ -42,8 +77,8 @@
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: center center;
-  transition: opacity ease-in-out 200ms;
-  opacity: 0.1;
+  opacity: 0.2;
+  transition: opacity ease-in-out 750ms;
 
   &:hover        { opacity: 1; }
   &[state="show"]{ display: block; }
@@ -51,16 +86,19 @@
 }
 
 .c-scroll-btn--down {
+  @include position ( fixed, 86%, null, null, 50%);
   background-image: url(../images/scroll_btn_down.svg);
+  opacity: 0.1;
 }
 .c-scroll-btn--up {
+  @include position ( fixed, 86%, null, null, 0);
   background-image: url(../images/scroll_btn_up.svg);
 }
 
 
+// text
 .please-scroll {
   @include none;
-  @include position($p: fixed, $t: 86%, $l:50%);
   @include fit-content;
   @include centering-fix($x:-50% , $y: -200% );
   @include text-color;
@@ -68,40 +106,41 @@
   font-weight: 400;
   letter-spacing: 0.8px;
 }
+
 .c-scroll-btn--down:hover + .please-scroll,
 .c-scroll-btn--up:hover + .please-scroll {
   display: block;
 }
 
-.c-scroll-btn--up + .please-scroll {
-  background: #ffffffcc;
+.c-scroll-btn--down:hover + .please-scroll{
+  @include position ( fixed, 86%, null, null, 50%);
 }
 
+.c-scroll-btn--up:hover + .please-scroll {
+  @include position ( fixed, null, -17.5px, 50px, null);
+  color: black;
+
+  &::after{
+    content: ">>";
+    display: inline-block;
+    padding: 0 10px;
+    background: #ffffffcc;
+    color: black;
+    @include font-size(14);
+  }
+}
+
+// ***** ***** ***** //
 
 
-// フェードイン(js+css)準備 //.in-viewの付与でフェードイン
-header,
-h1#pageTittle,
-.c-scroll-btn--down,
+// ***** フェードイン ***** //
+
+header > h1,
+.p-description,
 .p-profile,
 .p-portfolios,
 .p-skills {
   opacity: 0;
 }
 
-// // // // // //
-// クラス制御 //
-// // // // // //
-
-.is-hidden {
-  @include none;
-  opacity: 0;
-  transition: display ease-in 0ms 300ms, opacity ease-in 300ms 0ms;
-}
-
-
-// フェードイン(js+css)準備 //.in-viewの付与でフェードイン
-.inview {
-opacity:1;
-transition: opacity ease-in 1000ms 30ms;
-}
+// ***** ***** ***** //

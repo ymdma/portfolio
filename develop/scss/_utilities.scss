@@ -1,12 +1,29 @@
 
 // // Utility // //
 
+
+// // // // // //
+// クラス制御 //
+// // // // // //
+
 .is-active {
   display: block !important;
 }
+
 .is-hidden {
   display: none !important;
 }
+
+// フェードイン(js+css)準備 //.in-viewの付与でフェードイン
+.inview {
+  opacity:1 !important;
+  transition: opacity ease-in 1000ms 30ms;
+  }
+
+// // // // // //
+
+
+
 
 // 表示しない ( display:none; )
 @mixin none {
@@ -55,6 +72,10 @@
 //   border-bottom: solid $borderColorGray 1px;
 // }
 
+
+// // // //
+//  文字
+
 // pxで書いてremに変換 (基準を自動判断)
 @mixin line-height($size) {
   $bairitu: $baseFontSize / 16 ; // 基準のpx数が16の何倍か
@@ -101,7 +122,7 @@
 
 
 // // // //
-// 隣接指定 (px)
+// 隣接指定 (px = 固定値)
 
 // 隣接横
 @mixin ppX ($n) {
@@ -163,15 +184,6 @@
 //   align-items: flex-start;
 // }
 
-// // 横並び
-// @mixin flex_sideBySide{
-//   ul {
-//     display: flex;
-//     flex-wrap: nowrap;}
-//   p {
-//     display: inline-block;
-//   }
-// }
 
 // *** flex ***
 

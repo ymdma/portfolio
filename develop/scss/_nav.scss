@@ -1,0 +1,109 @@
+// // NAV & HBG // //
+
+// **** HBG ****
+
+.c-hamburger-button {
+  @include position ( fixed, 10px, 10px, null, null);
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  z-index: 202;
+  cursor: pointer;
+
+  // mq //
+  @include sp {
+    @include position ( fixed, 10px, 0px, null, null);
+  }
+  // mq //
+
+  &__line{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 26px;
+    height: 4px;
+    background: $baseBlackColor;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    transition: all .3s;
+
+    &:before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: inherit;
+      height: inherit;
+      background: inherit;
+      border: none;
+      transition: inherit;
+
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      top: 10px;
+    }
+  }
+}
+
+
+// ** HBG 展開時 **
+.c-hamburger-button[aria-expanded="true"] {
+
+  .c-hamburger-button__line {
+    background: #ffffff00; // for transition
+
+    &::before {
+      top: 0;
+      background: $baseBlackColor;
+      opacity: 1;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 0;
+      background: $baseBlackColor;
+      opacity: 1;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+// **** NAV ****
+
+.nav__list {
+  @include position ( fixed, 0, 0, 0, 0 );
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  padding: 0 10%;
+  background: #00000099;
+  transition: all ease 1s;
+  z-index: 201;
+
+  // mq //
+  @include sp {
+    padding: 0 30px;
+  }
+  // mq //
+
+  li {
+    color: $baseWhiteColor;
+    @include font-size(20);
+    cursor: pointer;
+    outline-color: #ffffff11;
+  }
+
+  &[aria-expanded="false"] {
+    @include position ( fixed, -60px, 0, 0, 0 );
+    background: #00000000;
+  }
+}

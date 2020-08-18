@@ -6,9 +6,12 @@ const Tech = require("../json/data.json");
 import {Person} from "./_class";
 import {isIE ,noIE} from "./_noIE";
 
+// /* ==========================
+//   読み込み DOMContentLoaded
+// =========================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // hbg();
+  hbg();
   noIE();
   appendSkillList();
   skillShow();
@@ -16,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   profileHeight();
   toggleScrollBtn();
   scrollEvent();
-  smoothScroll()
+  scrollBtnMove()
+  scrollFromNav()
+  scrollUpBtnMove()
 });
 
 
@@ -24,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //   Global Variables / Objects
 // =========================== */
 
-let currentLocation = 'upper'; // スクロール位置が上半分か下半分か
 
 // 山田オブジェクト (ここの入れ替えで他の人のページにもなる、というテイ)
 let Yamada = new Person()
@@ -82,32 +86,32 @@ Yamada = {
                         title  : 'mercariコピーサイト',
                         url    : 'http://13.115.148.93/',
                         gitHub : 'https://github.com/ymdma/freemarket_sample_60c',
-                        comment: 'Basic認証 ID:mercari PASS:1031<br>TECH::EXPERTでのチーム開発（4人）にて制作しました。<br>メルカリのクローンサイトを制作し、スクラムを組んでのアジャイル開発を経験しました。<br>主な担当箇所としては、要件定義、DB設計、Pay.jp(開発環境)、 SNS認証(開発環境) 等です。'
+                        comment: '[ Basic認証 ID:mercari PASS:1031 ]<br><br>TECH::EXPERTでのチーム開発（4人）にて制作しました。<br>メルカリのクローンサイトを制作し、スクラムを組んでのアジャイル開発を経験しました。<br>主な担当箇所としては、要件定義、DB設計、Pay.jp(開発環境)、 SNS認証(開発環境) 等です。'
                 },
                 groupBlog: {
                         title  : 'GroupBlog',
                         url    : 'http://52.193.98.166/',
                         gitHub : 'https://github.com/ymdma/group_blog',
-                        comment: 'グループ機能を持ったショートブログの投稿アプリケーション。<br>ページ遷移を制限するため、indexに機能を集めました。その為Ajaxを多用しています。'
+                        comment: 'グループ機能を持ったショートブログ共有アプリケーション。<br>ページ遷移を制限するため、indexに機能を集めました。その為Ajaxを多用しています。'
                 },
                 hiraganaPorker: {
                         title  : 'ひらがなポーカー',
                         url    : 'https://hiragana-de-porker.web.app/',
                         gitHub : 'https://github.com/ymdma/hiragna-porker',
-                        comment: 'ひらがなを使ったカードゲームを２人プレイ用のJavaScriptゲームで再現しました。<br>面白い言葉を作った方が勝ち！'
+                        comment: '初めて作ったJavaScriptによるゲーム。<br>ひらがなを使ったカードゲームを２人プレイ用のJavaScriptゲームで再現しました。<br>面白い言葉を作った方が勝ち！'
                 },
                 countDown: {
                         title  : 'countDown',
                         url    : 'https://count--down.web.app/',
                         gitHub : 'https://github.com/ymdma/count-down',
-                        comment: '1から25までの数字を順番にクリック（タップ）していき、早いタイムを目指すゲームです。JavaScriptで制作しています。<br>よりよいコードを書けるように、可読性やメンテナンス性を高めるなど意識しました。'
-                },
-                searchTeacher: {
-                        title  : '教員検索',
-                        url    : '#',
-                        gitHub : 'https://github.com/ymdma/teacher-search-module',
-                        comment: ''
+                        comment: 'JavaScriptによるミニゲーム。<br>1から25までの数字を順番にクリック（タップ）していき、早いタイムを目指すゲームです。<br>よりよいコードを書けるように、可読性やメンテナンス性を高めるなど意識しました。'
                 }
+                // searchTeacher: {
+                //         title  : '教員検索',
+                //         url    : '#',
+                //         gitHub : 'https://github.com/ymdma/teacher-search-module',
+                //         comment: ''
+                // }
           }
   }
 };
@@ -144,16 +148,16 @@ Yamada = {
 
 
 
-// function setAriaExpanded(target) {
-//   console.log(target)
-//   const checkProp = target.getAttribute('aria-expanded')
-//   if (checkProp === 'true') {
-//     target.setAttribute('aria-expanded', false);
-//   }
-//   else {
-//     target.setAttribute('aria-expanded', true);
-//   }
-// };
+function setAriaExpanded(target) {
+  // console.log(target)
+  const checkProp = target.getAttribute('aria-expanded')
+  if (checkProp === 'true') {
+    target.setAttribute('aria-expanded', false);
+  }
+  else {
+    target.setAttribute('aria-expanded', true);
+  }
+};
 
 
 // /* ==========================
@@ -202,17 +206,18 @@ window.addEventListener('resize',() => skillsHeight() );
 
 // profile のheight自動追従 (DOMContentLoaded・window/resize より呼出)
 const profileHeight = () => {
+
   const profLeft = document.getElementById('profile-left');
-  let myDataHeight;
-  myDataHeight = document.getElementById('myData').clientHeight;
+  let myDataHeight = document.getElementById('myData').clientHeight;
+
   setTimeout( fitHeight (profLeft, myDataHeight), 200);
 }
 
 // profile のheight自動追従 (DOMContentLoaded・window/resize より呼出)
 const skillsHeight = () => {
   const skillsLeft = document.getElementById('skillsLeft');
-  let skillDisplayHeight;
-  skillDisplayHeight = document.getElementById('skillsRight').clientHeight;
+  let skillDisplayHeight = document.getElementById('skillsRight').clientHeight;
+
   setTimeout( fitHeight (skillsLeft, skillDisplayHeight), 200);
 }
 
@@ -222,6 +227,7 @@ function fitHeight(target,size) {
 }
 
 const appendSkillList = () => {
+
   const webSkill = Yamada.skill.web;
   const skillList = document.getElementById('skillList');
 
@@ -239,6 +245,7 @@ const appendSkillList = () => {
 
 // skill comment
 const skillShow = () => {
+
   const skillList_Li = document.querySelectorAll(' #skillList > li ');
   const skillArr = Array.prototype.slice.call(skillList_Li);
 
@@ -254,33 +261,31 @@ const skillShow = () => {
 
 
 // HBG Btn
-// const hbg = () => {
-//   const
-//       hamburgerBtn = document.getElementById('hamburgerBtn'),
-//       hbg = document.getElementById('hbg'),
-//       navList = document.getElementById('navList');
+const hbg = () => {
 
-//   hamburgerBtn.addEventListener('click', () => {
-//     setAriaExpanded(hamburgerBtn);
-//     setAriaExpanded(hbg);
-//     setAriaExpanded(navList);
-//   })
-  // closeButton.onclick = () => {
-  //   setAriaExpanded(hamburgerBtn);
-  //   setAriaExpanded(hbg);
-  //   setAriaExpanded(navList);
-  // }
-// }
+  const
+      hamburgerBtn = document.getElementById('hamburgerBtn'),
+      hbg = document.getElementById('hbg'),
+      navList = document.getElementById('navList');
+
+  hamburgerBtn.addEventListener('click', () => {
+    setAriaExpanded(hamburgerBtn);
+    setAriaExpanded(hbg);
+    setAriaExpanded(navList);
+  })
+
+}
 
 
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
+
   const
             pageTittle  = document.getElementById('pageTittle'),
             description = document.getElementById('description'),
         skillsSection   = document.getElementById('skillsSection'),
   skillsAppendContent   = document.getElementById('skillsAppendContent'),
-      portFolioSection  = document.getElementById('portFolioSection'),
+    portfoliosSection   = document.getElementById('portfoliosSection'),
         profileSection  = document.getElementById('profileSection');
 
   if (isIE()) {
@@ -290,22 +295,20 @@ const scrollEvent = () => {
     description.style.opacity = '1';
     skillsSection.style.opacity = '1';
     skillsAppendContent.style.opacity = '1';
-    portFolioSection.style.opacity = '1';
+    portfoliosSection.style.opacity = '1';
     profileSection.style.opacity = '1';
 
   }
   //I E以外
   else {
 
-
-
   const cb = (entries, observer) => {
-    entries.forEach( entry => {
-      if(entry.isIntersecting){
 
+    entries.forEach( entry => {
+
+      if(entry.isIntersecting){
         entry.target.classList.add('inview')
         // observer.unobserve(entry.target);//止める
-
       } else {
         entry.target.classList.remove('inview');
       }
@@ -322,59 +325,102 @@ const scrollEvent = () => {
     io.observe(profileSection)
     io.observe(skillsSection)
     io.observe(skillsAppendContent)
-    io.observe(portFolioSection)
+    io.observe(portfoliosSection)
   }
 }
 
 
 
 // スクロールボタンの切り替え
+  // （上の方か下の方かを検知してスクロールボタンの表示を変更）
 const toggleScrollBtn = () => {
+
   let pageHeight;
   let nowScroll;
+  let winHeight;
 
-  window.onscroll = function() {
-
-    nowScroll = window.pageYOffset
+  window.onscroll = () => {
     pageHeight = document.body.scrollHeight;
+    nowScroll = window.pageYOffset
+    winHeight = window.innerHeight
 
-    if ( nowScroll < pageHeight / 2 ) {
-      currentLocation = 'lower'
-    } else {
-      currentLocation = 'upper'
-    }
-
-    setTimeout(setCL, 300)
-
-    function setCL( nowScroll, pageHeight ) {
-
-    }
-    const scrollBtn = document.getElementById('scrollBtn');
-    const scrollBtnRvs = document.getElementById('scrollBtnRvs');
-
-    if ( currentLocation === 'lower' ) {
-      scrollBtn.setAttribute('state','show')
-      scrollBtnRvs.setAttribute('state','hide')
-
-    } else {
+    if ( nowScroll >= pageHeight - winHeight ) {
       scrollBtn.setAttribute('state','hide')
       scrollBtnRvs.setAttribute('state','show')
+    } else {
+      scrollBtn.setAttribute('state','show')
+      scrollBtnRvs.setAttribute('state','hide')
     }
+
+
   }
 }
 
 
-// scrollBtnRvs  return to auto!
-const smoothScroll = () => {
-  const scrollBtnRvs = document.getElementById('scrollBtnRvs');
+// scrollBtnDown
+const scrollBtnMove = () => {
 
-  scrollBtnRvs.addEventListener('click',() => {
+  let manuallyDownScroll;
+  const scrollBtn = document.getElementById('scrollBtn');
 
-    window.scrollTo({
-      top:0,
-      behavior: "smooth"
-    });
+  scrollBtn.addEventListener('mouseenter', () => {
+    manuallyDownScroll = setInterval(manuallyScroll, 100)
+  })
+  scrollBtn.addEventListener('mouseleave', () => {
+    clearInterval(manuallyDownScroll)
   })
 
+  function manuallyScroll() {
+    window.scrollBy( {
+      top: 50,
+      behavior: "smooth"
+    });
+  }
 }
 
+const scrollUpBtnMove = () => {
+
+  const scrollBtnRvs = document.getElementById('scrollBtnRvs');
+
+  scrollBtnRvs.addEventListener('click', () => {
+    setTimeout( () => {
+      window.scrollTo( {
+        top: 0,
+        behavior: "smooth"
+      });
+    })
+  })
+}
+
+// navからのスクロール
+const scrollFromNav = () => {
+  const
+      toProfile = document.getElementById('toProfile'),
+      profileSection = document.getElementById('profileSection'),
+      toSkills = document.getElementById('toSkills'),
+      skillsSection = document.getElementById('skillsSection'),
+      toPortfolios = document.getElementById('toPortfolios'),
+      portfoliosSection = document.getElementById('portfoliosSection');
+
+  toProfile.onclick = () => {
+    scrollToElement(profileSection)
+  }
+  toSkills.onclick = () => {
+    scrollToElement(skillsSection)
+  }
+  toPortfolios.onclick = () => {
+    scrollToElement(portfoliosSection)
+  }
+}
+
+// navからのスクロール
+function scrollToElement(arrEle) {
+
+  let rect = arrEle.getBoundingClientRect();
+  let y = rect.top - 85;
+
+  window.scrollBy({
+    top: y,
+    behavior: "smooth"
+  });
+}

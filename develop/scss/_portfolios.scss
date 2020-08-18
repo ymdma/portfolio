@@ -215,6 +215,11 @@
   // transform: translate(0,-3px);
   transform: translate(0,-250%);
   word-break: none;
+        // mq //
+        @include sp {
+          display: block;
+        }
+        // mq //
 }
 .link-to-this-site-github:hover + .comment-to-this-site {
   display: block;

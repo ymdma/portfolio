@@ -71,7 +71,7 @@
       background-position: center center;
       opacity: 0.75;
       filter: drop-shadow( 8px 8px 8px #aaaaaa00 );
-      transition: opacity ease-in-out 100ms,filter ease-in-out 100ms;
+      transition: opacity ease-in-out 100ms, filter ease-in-out 100ms;
       // mq //
       @include sp {
         width: 36px;

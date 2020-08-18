@@ -2,7 +2,7 @@
 // YUIベースのリセットCSS
 *{
 	box-sizing: border-box;
-  font-family: NotoSansJP, sans-serif,"Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Hiragino Sans", "ヒラギノ角ゴシック";
+  font-family: NotoSansJP, $hiragino, $sansSerif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

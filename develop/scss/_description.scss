@@ -1,8 +1,11 @@
+// // description // //
+
+
 .p-description {
   @extend .p-content-section;
   @include flex--column__center();
   margin-bottom: 200px;
-  opacity: 0;
+  padding: 0 10%;
 
   h1{
     @extend .content-headline1;
@@ -11,5 +14,18 @@
     @include full-size;
     @include line-height(24);
     @include font-size(18);
+    line-break: strict;
+    // mq //
+    @include sp {
+      @include line-height(22);
+      @include font-size(14);
+    }
+    @include tb {
+      @include line-height(24);
+      @include font-size(16);
+    }
+    @include pc1 {
+    }
+    // mq //
   }
 }
