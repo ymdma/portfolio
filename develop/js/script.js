@@ -6,25 +6,6 @@ const Tech = require("../json/data.json");
 import {Person} from "./_class";
 import {isIE ,noIE} from "./_noIE";
 
-// /* ==========================
-//   読み込み DOMContentLoaded
-// =========================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-  hbg();
-  noIE();
-  appendSkillList();
-  skillShow();
-  appendProf();
-  profileHeight();
-  toggleScrollBtn();
-  scrollEvent();
-  scrollBtnMove();
-  scrollFromNav();
-  scrollUpBtnMove();
-  buildPortfolios();
-});
-
 
 // /* ==========================
 //   Global Variables / Objects
@@ -58,29 +39,29 @@ Yamada = {
           },
           other: ['RecordingEngineer & Mixer', '制作プランニング'],
           web: {
-                html       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('html','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                haml       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('haml','TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。' )}`) }),
-                pug        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('pug','スクール終了後、独学にて学習しました。問題なく使用できます。' )}`) }),
-                css        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('css','以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。' )}`) }),
-                sass       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('sass','TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。' )}`) }),
-                js         : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('js','主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。' )}`) }),
-                jQuery     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('jQuery','DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                vue        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('vue','独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)' )}`) }),
-                nuxt       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('nuxt','独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。' )}`) }),
-                ruby       : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('ruby','TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。' )}`) }),
-                rails      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('rails','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。' )}`) }),
-                php        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('php','少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。' )}`) }),
-                wordPress  : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('wordPress','個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）' )}`) }),
-                slack      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('slack','使用できます。' )}`) }),
-                git        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('git','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                gitHub     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('gitHub','TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>' )}`) }),
-                sourcetree : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('sourcetree','元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。' )}`) }),
-                nginx      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('nginx','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                mysql      : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('mysql','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-                webpack    : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('webpack','独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。' )}`) }),
-                docker     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('docker','composeからの構築程度で、初級レベルです。' )}`) }),
-                aws        : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('aws','TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)' )}`) }),
-              firebase     : ( () => { pushContent( 'skillAppendTargetArea',  `${skillsHTML('firebase','簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。' )}`) })
+                html       : '以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。',
+                haml       : 'TECH::EXPERTにて学習しました。<br>Railsの開発時に使用しています。問題なく使用できる言語です。',
+                pug        : 'スクール終了後、独学にて学習しました。問題なく使用できます。',
+                css        : '以前にも何度か使用経験はありましたが、TECH::EXPERTにて基礎を学習し直し、現在も日々理解を進めています。',
+                sass       : 'TECH::EXPERT及び、個人で学習しています。<br>@mixinと@extendの使い分けや、作業を効率化できる書き方を意識して、日々理解を進めています。',
+                js         : '主にスクール修了後、個人で学習しています。<br>自分が一番好きな言語です。<br>当サイト、<a href="https://hiragana-de-porker.web.app/">ひらがなポーカー</a>、<a href="https://count--down.web.app/">CountDown</a>、<a href="https://github.com/ymdma/teacher-search-module">教員検索</a> 等、頻繁にアウトプットを行なっています。',
+                jQuery     : 'DOM操作やAPI、ajaxなど。TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。',
+                vue        : '独学にて学習しました。<br>TODOアプリ / シンプルなAPIを使うアプリを作るなどアウトプットを行いました。(vue-cli含む)',
+                nuxt       : '独学にて学習しました。<br>TODOアプリ(Firestore連携) / シンプルな外部APIを使うアプリを作るなどアウトプットを行いました。',
+                ruby       : 'TECH::EXPERTにて学習しました。フレームワークは、Ruby on Railsの使用経験があります。',
+                rails      : 'TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。',
+                php        : '少しですが、独学にて学習。<br>DAOを用いたスクラッチでのMVCアプリケーションの作成などアウトプットしつつ学びました。<br>XAMP、MAMPは使用経験あり。',
+                wordPress  : '個人事業主時代に集客目的で運用経験あり。XAMP,MAMP、レンタルサーバー上での環境構築の経験あり。<br>（Web技術全体の理解を深める為に試しました。）',
+                slack      : '使用できます。',
+                git        : 'TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>',
+                gitHub     : 'TECH::EXPERTにて学習しました。 <a href="https://github.com/ymdma/"><br>ID:ymdma</a>',
+                sourcetree : '元々GitHubDesktopやVSCを使用していたため、最近少しずつ慣れている所です。',
+                nginx      : 'TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)',
+                mysql      : 'TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)',
+                webpack    : '独学にて学習しました。<br>基本的な使用ができます。<br>現在よく使う構成は、Pug、Sass、JS、そしてタスクランナーにglobuleです。',
+                docker     : 'composeからの構築程度で、初級レベルです。',
+                aws        : 'TECH::EXPERTチーム開発(<a href="http://13.115.148.93/">mercariコピーサイト</a>)、個人での開発(<a href="http://52.193.98.166/">GroupBlog</a>)等にて使用しました。<br> 構成: nginx MySQL AWS EC2/S3(画像)',
+                firebase   : '簡単なアプリケーションを作った際、DBにFirestoreを使用してみたり、<br>フロントで完結するアプリやサイトをHostingを使ってアップしています。'
           },
           portfolio: {
                 mercari: {
@@ -121,6 +102,30 @@ Yamada = {
   }
 };
 
+let arg = Yamada;
+
+
+// /* ==========================
+//   読み込み DOMContentLoaded
+// =========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  hbg();
+  noIE();
+  appendSkillList();
+  skillShow();
+  appendProf();
+  profileHeight();
+  toggleScrollBtn();
+  scrollEvent();
+  scrollBtnMove();
+  scrollFromNav();
+  scrollUpBtnMove();
+  buildPortfolios();
+});
+
+
+
 
 // /* ==========================
 //   Functions ユーティリティ系
@@ -146,20 +151,16 @@ Yamada = {
 //   }
 // }
 
-// // 画面の初期化
-// const removeEle = (ele) => {
-//   while (ele.firstChild) ele.removeChild(ele.firstChild);
-// }
-
-
 
 function setAriaExpanded(target) {
+
   const checkProp = target.getAttribute('aria-expanded');
-  if (checkProp === 'true') {
-    target.setAttribute('aria-expanded', false);
+
+  if ( checkProp === 'true' ) {
+    target.setAttribute('aria-expanded', false );
   }
   else {
-    target.setAttribute('aria-expanded', true);
+    target.setAttribute('aria-expanded', true );
   }
 };
 
@@ -172,7 +173,7 @@ function setAriaExpanded(target) {
 // portfolio オブジェクトより append
 const buildPortfolios = () => {
 
-  const portfolios = Yamada.skill.portfolio;
+  const portfolios = Yamada.skill.portfolio;  // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
   const portfolioAppendTargetArea = document.getElementById('portfolioAppendTargetArea');
 
   Object.keys(portfolios).forEach( data => {
@@ -180,8 +181,8 @@ const buildPortfolios = () => {
     const portfolioOne = document.createElement('a');
 
     portfolioOne.classList.add('c-portfolio');
-    portfolioOne.setAttribute('id', `${data}`);
-    portfolioOne.setAttribute('href', `${portfolios[data].url}`);
+    portfolioOne.setAttribute('id', `${data}` );
+    portfolioOne.setAttribute('href', `${portfolios[data].url}` );
     portfolioOne.setAttribute('title', 'ポートフォリオサイトへのリンク' );
     portfolioAppendTargetArea.appendChild(portfolioOne);
 
@@ -190,46 +191,95 @@ const buildPortfolios = () => {
 }
 
 
+
 // portfolios
 function portfoliosHTML(data) {
 
-  return `<a class="c-portfolio" href="${Yamada.skill.portfolio[data].url}" title="ポートフォリオサイトへのリンク">
+  let
+      url = Yamada.skill.portfolio[data].url,
+      tittle = Yamada.skill.portfolio[data].tittle,
+      image = Yamada.skill.portfolio[data].image,
+      comment = Yamada.skill.portfolio[data].comment;
+            // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
+
+  return `<a class="c-portfolio" href="${url}" title="ポートフォリオサイトへのリンク">
             <div class="c-portfolio__title-wrap">
-              <h2>${Yamada.skill.portfolio[data].title}</h2>
+              <h2>${tittle}</h2>
             </div>
             <div class="c-portfolio__thumb-wrap">
-              <img src="${Yamada.skill.portfolio[data].image}"  alt="portfolio-image">
+              <img src="${image}"  alt="portfolio-image">
             </div>
-            <p class="c-portfolio__comment">${Yamada.skill.portfolio[data].comment}</p>
+            <p class="c-portfolio__comment">${comment}</p>
           </a> `;
 };
 
 
 // HTMLにプッシュ
 const pushContent = (target, str) => {
+
   document.getElementById(target).innerHTML = str;
+
 };
 
-// Skills
-function skillsHTML(key,str) {
+// Skills appendするHTMLを生成
+function skillsHTML(key) {
+
+  let techName = Tech[key].name;
+  let techLogoUrl = Tech[key].logo;
+  let comment = Yamada.skill.web[key]; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
+
   return `<div>
-            <p class="name" role="title">${Tech[key].name}</p>
-            <p class="logo"><img src="${Tech[key].logo}"></p>
+            <p class="name" role="title">${techName}</p>
+            <p class="logo"><img src="${techLogoUrl}"></p>
           </div>
-          <p class="comment">${str}</p> `;
+          <p class="comment">${comment}</p> `;
 };
 
-// オブジェクトデータを呼び出す
-function callData (a1,a2,a3) {
-  return Yamada[a1][a2][a3]();
+
+// 個々のスキルへのコメントの表示
+
+const skillShow = () => {
+
+  const skillList_Li = document.querySelectorAll(' #skillList > li ');
+  const skillArr = Array.prototype.slice.call(skillList_Li);
+
+  skillArr.forEach( e => {
+    e.addEventListener('mouseover', event => {
+      let id = event.target.id;
+
+      pushContent( 'skillAppendTargetArea', skillsHTML(id) );
+
+      skillsHeight();
+    })
+  })
 };
 
+
+// Skill list をappend
+const appendSkillList = () => {
+
+  const webSkill = Yamada.skill.web; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
+  const skillList = document.getElementById('skillList');
+
+  Object.keys(webSkill).forEach( key => {
+
+    let logoURL = Tech[`${key}`]['logo'];
+    let newLi = document.createElement('li');
+
+    newLi.setAttribute('alt',`${key}_logo-image`);
+    newLi.id = `${key}`;
+    newLi.style.backgroundImage = `url(${logoURL})`;
+    skillList.appendChild(newLi);
+  })
+};
 
 // profile
 const appendProf = () => {
-  const prof = Yamada.profile;
+
+  const prof = Yamada.profile; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
   const profList = document.getElementById('profList');
   let li;
+
   Object.values(prof).forEach( e => {
     li = document.createElement('li');
     li.innerHTML = `${e}`;
@@ -254,6 +304,7 @@ const profileHeight = () => {
 
 // profile のheight自動追従 (DOMContentLoaded・window/resize より呼出)
 const skillsHeight = () => {
+
   const skillsLeft = document.getElementById('skillsLeft');
   let skillDisplayHeight = document.getElementById('skillsRight').clientHeight;
 
@@ -261,41 +312,8 @@ const skillsHeight = () => {
 };
 
 // heightを設定
-function fitHeight(target,size) {
+function fitHeight(target, size) {
   target.style.height = `${size}px`;
-};
-
-const appendSkillList = () => {
-
-  const webSkill = Yamada.skill.web;
-  const skillList = document.getElementById('skillList');
-
-  Object.keys(webSkill).forEach( e => {
-
-    let logoURL = Tech[`${e}`]['logo'];
-    let newLi = document.createElement('li');
-
-    newLi.setAttribute('alt',`${e}_logo-image`);
-    newLi.id = `${e}`;
-    newLi.style.backgroundImage = `url(${logoURL})`;
-    skillList.appendChild(newLi);
-  })
-};
-
-// skill comment
-const skillShow = () => {
-
-  const skillList_Li = document.querySelectorAll(' #skillList > li ');
-  const skillArr = Array.prototype.slice.call(skillList_Li);
-
-  skillArr.forEach( e => {
-    e.addEventListener('mouseover', event => {
-      let id = event.target.id;
-
-      callData('skill', 'web', id);
-      skillsHeight();
-    })
-  })
 };
 
 
@@ -338,7 +356,7 @@ const scrollEvent = () => {
     profileSection.style.opacity = '1';
 
   }
-  //I E以外
+  //IE以外
   else {
 
   const cb = (entries, observer) => {
@@ -385,11 +403,11 @@ const toggleScrollBtn = () => {
     winHeight = window.innerHeight;
 
     if ( nowScroll >= pageHeight - winHeight ) {
-      scrollBtn.setAttribute('state','hide');
-      scrollBtnRvs.setAttribute('state','show');
+      scrollBtn.setAttribute('state', 'hide');
+      scrollBtnRvs.setAttribute('state', 'show');
     } else {
-      scrollBtn.setAttribute('state','show');
-      scrollBtnRvs.setAttribute('state','hide');
+      scrollBtn.setAttribute('state', 'show');
+      scrollBtnRvs.setAttribute('state', 'hide');
     }
 
 
@@ -435,11 +453,11 @@ const scrollUpBtnMove = () => {
 // navからのスクロール
 const scrollFromNav = () => {
   const
-      toProfile = document.getElementById('toProfile'),
-      profileSection = document.getElementById('profileSection'),
-      toSkills = document.getElementById('toSkills'),
-      skillsSection = document.getElementById('skillsSection'),
-      toPortfolios = document.getElementById('toPortfolios'),
+      toProfile         = document.getElementById('toProfile'),
+      profileSection    = document.getElementById('profileSection'),
+      toSkills          = document.getElementById('toSkills'),
+      skillsSection     = document.getElementById('skillsSection'),
+      toPortfolios      = document.getElementById('toPortfolios'),
       portfoliosSection = document.getElementById('portfoliosSection');
 
   toProfile.onclick = () => {
