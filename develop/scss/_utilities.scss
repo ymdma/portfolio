@@ -38,7 +38,8 @@
 .is-active {
   &::after {
     @include gnavListAfter(underLineAnime);
-  }}
+  }
+}
 
 // *** is-active *** //
 
