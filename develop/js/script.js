@@ -338,52 +338,64 @@ const hbg = () => {
 const scrollEvent = () => {
 
   const
-            pageTittle  = document.getElementById('pageTittle'),
-            description = document.getElementById('description'),
-        skillsSection   = document.getElementById('skillsSection'),
-  skillsAppendContent   = document.getElementById('skillsAppendContent'),
-    portfoliosSection   = document.getElementById('portfoliosSection'),
-        profileSection  = document.getElementById('profileSection');
+      pageTittle           = document.getElementById('pageTittle'),
+      description          = document.getElementById('description'),
+      skillsSection        = document.getElementById('skillsSection'),
+      skillsAppendContent  = document.getElementById('skillsAppendContent'),
+      portfoliosSection    = document.getElementById('portfoliosSection'),
+      profileSection       = document.getElementById('profileSection');
+
 
   if ( isIE() ) {
   // IEの場合セットしてあるopacityを戻す
 
-    pageTittle.style.opacity = '1';
-    description.style.opacity = '1';
-    skillsSection.style.opacity = '1';
+    pageTittle.style.opacity          = '1';
+    description.style.opacity         = '1';
+    skillsSection.style.opacity       = '1';
     skillsAppendContent.style.opacity = '1';
-    portfoliosSection.style.opacity = '1';
-    profileSection.style.opacity = '1';
+    portfoliosSection.style.opacity   = '1';
+    profileSection.style.opacity      = '1';
 
   }
-  //IE以外
+  // IE以外
   else {
 
-  const cb = (entries, observer) => {
+    const cb = (entries, observer) => {
+      let sectionTitle;
+      let t;
+      entries.forEach( entry => {
+        t = entry.target.id
+        sectionTitle = document.querySelector(`#${t} > h1`);
+        // console.log(sectionTitle)
+        if( entry.isIntersecting ) {
+          entry.target.classList.add('inview');
+          if ( sectionTitle ) {
+            sectionTitle.classList.add('is-active');
+          }
 
-    entries.forEach( entry => {
+          // observer.unobserve(entry.target);//止める
+        } else {
+          entry.target.classList.remove('inview');
+          if ( sectionTitle ) {
+            sectionTitle.classList.remove('is-active');
+          }
+        }
+      })
+    }
 
-      if( entry.isIntersecting ) {
-        entry.target.classList.add('inview');
-        // observer.unobserve(entry.target);//止める
-      } else {
-        entry.target.classList.remove('inview');
-      }
-    })
-  }
+    //optionの設定
+    const options = { rootMargin: "-100px 0px 0px 0px" }; //適用範囲
 
-  const options = {
-    rootMargin: "-100px 0px 0px 0px",
-  }
-
+    // インスタンスの作成
     const io = new IntersectionObserver(cb, options);
-
+    // 要素を登録
     io.observe(pageTittle);
     io.observe(description);
     io.observe(profileSection);
     io.observe(skillsSection);
     io.observe(skillsAppendContent);
     io.observe(portfoliosSection);
+
   }
 };
 
@@ -409,8 +421,6 @@ const toggleScrollBtn = () => {
       scrollBtn.setAttribute('state', 'show');
       scrollBtnRvs.setAttribute('state', 'hide');
     }
-
-
   }
 };
 

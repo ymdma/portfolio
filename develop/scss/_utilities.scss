@@ -6,9 +6,41 @@
 // クラス制御 //
 // // // // // //
 
-.is-active {
-  display: block !important;
+
+
+// *** is-active *** //
+
+// スクロール発火
+
+@keyframes underLineAnime {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
 }
+
+@mixin gnavListAfter($name) {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background: orange;
+  position: relative;
+  bottom: 0;
+  animation-name: $name;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.is-active {
+  &::after {
+    @include gnavListAfter(underLineAnime);
+  }}
+
+// *** is-active *** //
 
 .is-hidden {
   display: none !important;
@@ -112,7 +144,7 @@
 
 
 // センタリング時の 自要素分の調整する (x,y)
-@mixin centering-fix(
+@mixin centering-fix (
   $x: -50%, $y: -50%,
   ) {
   transform: translate($x, $y);

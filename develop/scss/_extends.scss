@@ -8,9 +8,14 @@
   @include bg-transparent;
 }
 .content-headline1 {
-  width: 100%;
+  @include position ( relative, 0, null, 0, 50%);
+  @include centering-fix(-50%, 0);
+  width: fit-content;
+  margin: 0 auto 0;
   text-align: center;
   @include text-color($baseBlackColor);
+  overflow-x: hidden;
+
   // mq //
   @include sp {
     @include font-size(20);

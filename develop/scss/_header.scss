@@ -30,7 +30,11 @@ h1 {
   }
   // mq //
 
-  span {
+  .last-letter {
+    display: inline-block;
+  }
+
+  span.sub-tittle {
     display: block;
     @include position (absolute, 50%, null, null, 100%);
     width: 100%;
@@ -56,3 +60,144 @@ h1 {
   }
 }
 }
+
+
+
+.hinge-anime{
+  // @include position ( relative, 25px, null, null, 25px);
+  animation: tittleAnime2 linear 15s;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
+  transform-origin: 0% 0%;
+  animation-fill-mode: backwards; /*when the spec is finished*/
+
+}
+
+@keyframes tittleAnime2{
+  0% {
+    transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+  1.75% {
+    transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+  2.75% {
+    transform:  translate(0px,1em)  rotate(13deg) ; // 落ち
+  }
+  19% {
+    transform:  translate(3px,1em)  rotate(18deg) ;
+  }
+  4% {
+    transform:  translate(8px,1em)  rotate(46deg) ;
+  }
+  5% {
+    transform:  translate(8px,1em)  rotate(20deg) ;
+  }
+  6% {
+    transform:  translate(8px,1em)  rotate(40deg) ;
+  }
+  7% {
+    transform:  translate(8px,1em)  rotate(24deg) ;
+  }
+  8% {
+    transform:  translate(8px,1em)  rotate(36deg) ; //降
+  }
+
+  // Round 2
+  17% {
+    transform:  translate(8px,1em)  rotate(36deg) ;
+  }
+  19% {
+    transform:  translate(8px,1em)  rotate(15deg) ;
+  }
+  21% {
+    transform:  translate(8px,1em)  rotate(45deg) ;
+  }
+  23% {
+    transform:  translate(8px,1em)  rotate(15deg) ;
+  }
+  25% {
+    transform:  translate(8px,1em)  rotate(150deg) ;
+  }
+  27% {
+    transform:  translate(8px,1em)  rotate(151deg) ;
+  }
+  28% {
+    transform:  translate(8px,1em)  rotate(87deg) ;
+  }
+  29% {
+    transform:  translate(8px,1em)  rotate(24deg) ; //降
+  }
+  // Round 3
+  37% {
+    transform:  translate(8px,1em)  rotate(36deg) ;
+  }
+  39% {
+    transform:  translate(8px,1em)  rotate(15deg) ;
+  }
+  41% {
+    transform:  translate(8px,1em)  rotate(150deg) ;
+  }
+  43% {
+    transform:  translate(8px,1em)  rotate(151deg) ;
+  }
+  44% {
+    transform:  translate(8px,1em)  rotate(87deg) ;
+  }
+  45% {
+    transform:  translate(8px,1em)  rotate(24deg) ; //降
+  }
+
+  // Round4
+  52% {
+    transform:  translate(8px,1em)  rotate(24deg) ;
+  }
+  54% {
+    transform:  translate(8px,1em)  rotate(46deg) ;
+  }
+  56% {
+    transform:  translate(8px,1em)  rotate(18deg) ;
+  }
+  58% {
+    transform:  translate(0px,1em)  rotate(89deg) ; // 飛
+    opacity: 1;
+  }
+  70% {
+    transform:  translate(-103px,-50px)  rotate(160deg) ; // 飛
+    opacity: 0.5;
+  }
+  76% {
+    transform:  translate(-125px,-70px)  rotate(160deg); // ハヒフヘホ
+    opacity: 0;
+  }
+  100% {
+    transform:  translate(-125px,-70px)  rotate(166deg) ; // 待ち
+    opacity: 0;
+  }
+}
+
+
+// intro-animation__line stroke
+.line {
+  @include position ( absolute, 100%, null, null, 0);
+  width: 0;
+  height: 2.5px;
+  background: #caedf2;
+  animation: draw 2.1s ease-out .25s 1 normal forwards;
+  opacity: 0;
+}
+  @keyframes draw {
+    25%{
+      width: 100%;
+      @include position ( absolute, 100%, null, null, 0);
+      opacity: 1;
+    }
+    80%{
+      width: 100%;
+      @include position ( absolute, 100%, null, null, 0);
+      opacity: 1;
+    }
+    100%{
+      @include position ( absolute, 100%, null, null, 100%);
+      opacity: 0.5;
+    }
+  }

@@ -3,17 +3,17 @@
 
 .p-description {
   @extend .p-content-section;
-  @include flex--column__center();
   margin-bottom: 200px;
   padding: 0 10%;
 
-  h1{
+  h1 {
     @extend .content-headline1;
   }
   p {
     @include full-size;
     @include line-height(24);
-    @include font-size(18);
+    @include font-size(17.5);
+    text-align: center;
     line-break: strict;
     // mq //
     @include sp {
