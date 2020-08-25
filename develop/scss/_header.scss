@@ -34,7 +34,7 @@ h1 {
     display: inline-block;
   }
 
-  span.sub-tittle {
+  span.sub-title {
     display: block;
     @include position (absolute, 50%, null, null, 100%);
     width: 100%;
@@ -63,9 +63,9 @@ h1 {
 
 
 
-.hinge-anime{
+.hinge-anime {
   // @include position ( relative, 25px, null, null, 25px);
-  animation: tittleAnime2 linear 15s;
+  animation: titleAnime2 linear 15s;
   animation-iteration-count: 1;
   animation-delay: 3s;
   transform-origin: 0% 0%;
@@ -73,7 +73,7 @@ h1 {
 
 }
 
-@keyframes tittleAnime2{
+@keyframes titleAnime2 {
   0% {
     transform:  translate(0px,0px)  rotate(0deg) ;
   }

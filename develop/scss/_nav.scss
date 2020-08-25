@@ -12,13 +12,8 @@
   z-index: 202;
   cursor: pointer;
 
-  // mq //
-  @include sp {
-    // @include position ( fixed, 10px, 10px, null, null);
-  }
-  // mq //
 
-  &__line{
+  &__line {
     position: relative;
     top: 0;
     left: 0;

@@ -203,11 +203,13 @@
     display: flex;
     width: 100%;
     padding: 3rem 3rem;
+
     // mq //
     @include sp {
       padding: 1.5rem 1.5rem;
     }
     // mq //
+
     .name {
       width: 70%;
       height: fit-content;
@@ -217,6 +219,7 @@
       @include line-height(30);
       @include bg-transparent;
       transition: font-size ease .5s 1s;
+
       // mq //
       @include sp {
         @include font-size(22);
@@ -229,6 +232,7 @@
       @include pc1 {
       }
       // mq //
+
     }
     .logo {
       @include flex--column__center;

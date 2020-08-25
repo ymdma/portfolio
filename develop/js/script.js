@@ -170,7 +170,7 @@ function setAriaExpanded(target) {
 // =========================== */
 
 
-// portfolio オブジェクトより append
+// portfolios オブジェクトよりappend
 const buildPortfolios = () => {
 
   const portfolios = Yamada.skill.portfolio;  // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
@@ -197,14 +197,14 @@ function portfoliosHTML(data) {
 
   let
       url = Yamada.skill.portfolio[data].url,
-      tittle = Yamada.skill.portfolio[data].tittle,
+      title = Yamada.skill.portfolio[data].title,
       image = Yamada.skill.portfolio[data].image,
       comment = Yamada.skill.portfolio[data].comment;
             // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
 
   return `<a class="c-portfolio" href="${url}" title="ポートフォリオサイトへのリンク">
             <div class="c-portfolio__title-wrap">
-              <h2>${tittle}</h2>
+              <h2>${title}</h2>
             </div>
             <div class="c-portfolio__thumb-wrap">
               <img src="${image}"  alt="portfolio-image">
@@ -221,23 +221,11 @@ const pushContent = (target, str) => {
 
 };
 
-// Skills appendするHTMLを生成
-function skillsHTML(key) {
 
-  let techName = Tech[key].name;
-  let techLogoUrl = Tech[key].logo;
-  let comment = Yamada.skill.web[key]; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
 
-  return `<div>
-            <p class="name" role="title">${techName}</p>
-            <p class="logo"><img src="${techLogoUrl}"></p>
-          </div>
-          <p class="comment">${comment}</p> `;
-};
-
+// ***** Skills ***** //
 
 // 個々のスキルへのコメントの表示
-
 const skillShow = () => {
 
   const skillList_Li = document.querySelectorAll(' #skillList > li ');
@@ -253,6 +241,22 @@ const skillShow = () => {
     })
   })
 };
+
+
+// Skills appendするHTMLを生成
+function skillsHTML(key) {
+
+  let techName = Tech[key].name;
+  let techLogoUrl = Tech[key].logo;
+  let comment = Yamada.skill.web[key]; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
+
+  return `<div>
+            <p class="name" role="title">${techName}</p>
+            <p class="logo"><img src="${techLogoUrl}"></p>
+          </div>
+          <p class="comment">${comment}</p>`;
+};
+
 
 
 // Skill list をappend
@@ -273,7 +277,10 @@ const appendSkillList = () => {
   })
 };
 
-// profile
+
+
+// ***** profile ***** //
+
 const appendProf = () => {
 
   const prof = Yamada.profile; // 固有のものを使ってしまっている=>グローバル変数から引っ張るようにする
@@ -317,7 +324,10 @@ function fitHeight(target, size) {
 };
 
 
-// HBG Btn
+
+
+
+// ***** HBG Button ***** //
 const hbg = () => {
 
   const
@@ -334,22 +344,22 @@ const hbg = () => {
 };
 
 
+// ***** Scroll Animation ***** //
+
 // スクロールでのエフェクト(フェード) *IEの場合反映されない
 const scrollEvent = () => {
 
   const
-      pageTittle           = document.getElementById('pageTittle'),
+      pageTitle           = document.getElementById('pageTitle'),
       description          = document.getElementById('description'),
       skillsSection        = document.getElementById('skillsSection'),
       skillsAppendContent  = document.getElementById('skillsAppendContent'),
       portfoliosSection    = document.getElementById('portfoliosSection'),
       profileSection       = document.getElementById('profileSection');
 
-
   if ( isIE() ) {
   // IEの場合セットしてあるopacityを戻す
-
-    pageTittle.style.opacity          = '1';
+    pageTitle.style.opacity          = '1';
     description.style.opacity         = '1';
     skillsSection.style.opacity       = '1';
     skillsAppendContent.style.opacity = '1';
@@ -389,13 +399,12 @@ const scrollEvent = () => {
     // インスタンスの作成
     const io = new IntersectionObserver(cb, options);
     // 要素を登録
-    io.observe(pageTittle);
+    io.observe(pageTitle);
     io.observe(description);
     io.observe(profileSection);
     io.observe(skillsSection);
     io.observe(skillsAppendContent);
     io.observe(portfoliosSection);
-
   }
 };
 
